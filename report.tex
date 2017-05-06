@@ -51,10 +51,11 @@ In this section, we present the major technical challenges that have been identi
 We organise the issues that have been found by Yi et al. around the following areas: network, Quality of Service (QoS), application development, and security and privacy.
 
 \subsection{Networking}
-In order for the fog to function properly, the network has to be able to provide nodes with connectivity. In addition, it must offer additional services, such as routing. Due to the specific characteristics of the fog, though, efficiently providing these functions is considered challenging.
+In order for the fog to function properly, the network has to provide nodes with connectivity, and additional services, such as routing. Due to the specific characteristics of the fog, though, efficiently providing these functions is considered challenging \cite{yi2015survey}.
 
 In contrast to more traditional networks, for example, routing cannot be implemented centralised in a specific subset of nodes. Instead, as each node acts as router, a decentralised routing mechanisms must be used. Due to the mobility of nodes, this mechanism has to be able to deal with frequent changes in the network topology. Real-time requirements of many applications, and the prevalent use of unreliable wireless links make the fast and reliable delivery of packets even more difficult.
 
+In their proposal of a general architecture for the Fog, Bonomi et al. \cite{bonomi2014fog} state that the fog uses virtualisation for ``key resources'', including networking. As example, they suggest Software Defined Networking (SDN). As pointed out by Peng et al. \cite{peng2016fog}, however, SDN does not put ``a high emphasis'' on distribution. Similarly, Yi et al. state that the ``design distributed SDN system that meet the harsh requirement of fog computing'' is still an open issue.
 
 \subsection{Quality of Service}
 \label{sub_issues_qos}
@@ -84,7 +85,7 @@ Though the necessity of these abstraction layers is obvious, we expect that the 
 \subsection{Security and Privacy}
 Many applications that have been proposed for fog computing are safety-critical, and/or process sensitive data. For example, in vehicle-to-vehicle communication, an insecure system that allows attackers to remotely control the car could have disastrous consequences. In home automation, users might be worried that unwanted parties could learn about their daily routine.
 
-Stojmenovic and Wen find that providing authentication throughout the system is one of the ``main security issues'' for fog computing \cite{stojmenovic2014fog}. As an example, they describe a smart meter that is modified by a user, and reports then, due to a lack of authentication, false readings. As a possible solution, they suggest encryption at node-level. For this, the meter would encrypt its data, and another node would decrypt it before further forwarding the data.
+Stojmenovic and Wen \cite{stojmenovic2014fog} find that providing authentication throughout the system is one of the ``main security issues'' for fog computing . As an example, they describe a smart meter that is modified by a user, and reports then, due to a lack of authentication, false readings. As a possible solution, they suggest encryption at node-level. For this, the meter would encrypt its data, and another node would decrypt it before further forwarding the data.
 
 Encryption could also be used to protect the user's privacy.
 
