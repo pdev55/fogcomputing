@@ -42,7 +42,41 @@ RAM
 
 
 \section{Common Issues}
-Quality discussion and explanation on relevant issues as required with clear examples. Discussions of potential enhancement to address any performance issues are provided.
+Comments on issue related to communication paradigms, fault tolerance, consistency, reliability, etc.
+Marking criteria: Quality discussion and explanation on relevant issues as required with clear examples. Discussions of potential enhancement to address any performance issues are provided.
+
+As described in the previous section, fog computing is both highly dynamic, and heterogeneous: link quality, and the topology change constantly. This results in multiple issues that are no usually encountered for cloud computing.
+
+In their survey on fog computing, Yi et al. identify seven main issues related to fog computing. We summarise these issues in the following.
+
+\subsection{Networking}
+The highly dynamic nature of fog-based systems poses many challenges to existing networking mechanisms. As the network topology constantly changes, updates on the structure have to be propagated quickly. Network links have to be considered as generally unreliable. The network is inherently distributed, as each node has the ability to act as router [xx]. Using existing technologies such as SDN or NFV is expected to be difficult. 
+
+\subsection{Quality of Service}
+Low latency has been identified as a key feature of fog-based systems (see section XX). To be able to process data in real-time, though, multiple measures have to be taken.
+xx define 4 major aspects of QoS, which we discuss in the following:
+
+Connectivity: the quality of the provided service is greatly affected by the resources available in the network that a node is currently connected to. 
+
+Reliability: due to the need for low latency, traditional techniques used to improve reliability, such as checkpointing and rescheduling, are deemed as unfit for fog-based networks. XX argue that replication might work, however, we expect that the fast-changing nature of the data, and the unreliability of the network links, make fast propagation of changes difficult.
+
+Capacity: in order to efficiently use available storage and bandwidth, it is crucial to properly place data in the network.
+
+Delay: as stated above, keeping latencies low is essential to enable real-time applications.
+
+\subsection{Interfacing and programming model}
+In a general overview of fog computing, [xx] describe a ```fog abstraction layer'' that forms an essential part of the fog software architecture, and enables developers to easily implement applications that run on a heterogeneous set of fog nodes.
+
+Implementing such an abstraction layer, however, is expected to be challenging. Different nodes on the same network might be based on different platforms, and feature widely varying resources [quote on this?]. In addition, accounting for the highly dynamic nature of the network, e.g. frequent topology changes, appears to be a hard problem to solve [??].
+
+\subsection{Security and Privacy}
+Fog computing applications will process a great amount of personal, and sensitive data. For example, in the field of home automation, a fog computing system will have to analyse many different sensor values, which might give insights into behavioural patterns of the home's inhabitants. Protecting this data will be challenging. Though it has been argued that moving data from the datacenter closer to the user makes it easier for him/her to control the data, we believe that due to the heterogeneity inherent to fog computing, the opposite might be true. In accordance with that, [xx] see a major challenge in providing authentication across different layers.
+
+Besides keeping data private, maintaining network security is also an important aspect. With fog computing, a huge number of devices is set to be connected to a network, giving an attacker potential access to them. Using encryption [xx] might help to address this. As with privacy, though, we expect that the heterogeneous nature of fog-based networks makes the implementation of effective network-wide security difficult. 
+
+
+\subsection{Provisioning and Resource Management}
+
 
 PAUL
 
