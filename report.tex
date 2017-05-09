@@ -88,16 +88,23 @@ As stated in section XX, the fog is dynamic in regards to network topology, and 
 
 To ease development, Bonomi et al. \cite{bonomi2014fog} propose a ``fog abstraction layer'' that hides the underlying heterogeneity, and provides developers with a ``uniform and programmable interface''. Yi et al. make a similar suggestion by calling for a ``unified interfacing and programming model'' \cite{yi2015survey}.
 
-Due to issues mentioned in the beginning, though, we expect that the implementation of such a layer is challenging. Moreover, providing compatibility between nodes from different vendors might be hard, as the field is still emerging, and there is no industry-wide standard yet.
+Due to issues mentioned in the beginning, though, we expect that the implementation of such a layer is challenging.
 
 %TODO: what about cisco?
 
 \subsection{Security and Privacy}
-Many applications that have been proposed for fog computing are safety-critical, and/or process sensitive data. For example, in vehicle-to-vehicle communication, an insecure system that allows attackers to remotely control the car could have disastrous consequences. In home automation, users might be worried that unwanted parties could learn about their daily routine.
+Many applications that have been proposed for fog computing are safety-critical, and/or process sensitive data. For example, in vehicle-to-vehicle communication, an insecure system that allows attackers to remotely control the car could have disastrous consequences. In home automation, users might be worried about giving third parties insights into their daily routine.
 
-Stojmenovic and Wen \cite{stojmenovic2014fog} find that providing authentication throughout the system is one of the ``main security issues'' for fog computing . As an example, they describe a smart meter that is modified by a user, and reports then, due to a lack of authentication, false readings. As a possible solution, they suggest encryption at node-level. For this, the meter would encrypt its data, and another node would decrypt it before further forwarding the data.
+%Authentication/access control
+Stojmenovic and Wen \cite{stojmenovic2014fog} find that providing authentication throughout the system is one of the ``main security issues'' for fog computing. As an example, they describe a smart meter that is modified by a user, and reports then, due to a lack of proper authentication, false readings. As a possible solution, they suggest encryption at node-level. For this, the meter would encrypt its data, and another node would decrypt it before further forwarding the data. Similarly to this, the OpenFog consortium deems access control (to which it counts authentication) as ``key to building a secure system'' \cite{openfogconsortium2017}. 
 
-Encryption could also be used to protect the user's privacy.
+%Root of trust
+In addition to advocating access control, the consortium's reference architecture for fog computing also defines a hardware component called ``root of trust'' that is ``at the heart of the [...] security of the fog node''. This component is tamper proof, and required to be implemented by every fog node. It provides security by creating a ``chain of trust'', i.e., selecting other components such as hardware, software, or other nodes that it considers trustworthy. If a component is compromised, like the smart meter in the example above, it would not gain trust from the root, and therefore not do any harm.
+%stresses the importance of providing ``end-to-end security'' in general. To establish that, it
+
+Though access control and the chain of trust promise to provide a solid foundation to a secure fog system, they are both rather general methods. In order to improve security in a given context, it has been suggested in \cite{openfogconsortium2017} to select additional measures based on the specific use case.
+
+To protect privacy, Yi et al. \cite{yi2015survey} suggest to run ``privacy-preserving'' algorithms before data is transferred from the fog to the cloud. As examples, they mention techniques based on differential privacy and homomorphic encryption. Gerla \cite{gerla2012vehicular} makes an interesting point by stating that moving processing from the cloud to mobile devices alone gives users more control over their data. It can be easily seen, however, that this requires the implementation of adequate control mechanisms. The aforementioned reference architecture \cite{openfogconsortium2017} vaguely describes ``privacy attributes'' that a user can assign to his/her data, suggesting that these might be used to control its use.
 
 \pagebreak
 
