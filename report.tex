@@ -18,7 +18,7 @@
 \title{CSSE7014 Distributed Computing \\
 Assignment 2 \\
 Semester 1, 2017}
-\author{Paul Kogel (44644743), Ramdas Ramani (44743767)}
+\author{Paul Kogel (44644743), Ramdas Ramani (44743767), Andi Nuruljihad (44159069)}
 
 \begin{document}
 
@@ -100,7 +100,19 @@ Encryption could also be used to protect the user's privacy.
 
 
 \section{Applications}
-Various examples (across different disciplines) provided with clear arguments why they are relevant.
+%Various examples (across different disciplines) provided with clear arguments why they are relevant.
+
+Fog computing was conceptualized as an extension of the cloud to address services and applications for which the cloud paradigm is not entirely suitable \cite{bessis2014big}. As a relatively new model, the potential applications and likely infrastructure and design challenges for the fog are still being explored. However, there is a wide range of possible uses of a paradigm that enables real-time, low-latency processing, reduces bandwidth costs, with the benefits of improved security and governance.
+
+\subsection{Real-time health monitoring}
+Wireless Body Area Networks (WBAN) is an important technology in healthcare Internet-of-Things (IoT) applications that allows for the unobtrusive monitoring and recording of various vital signs of a patient in real-time. Many health-monitoring systems employ cloud servers for their low cost, processing power, and high storage volume. The primary drawbacks of relying on the cloud paradigm for such a system are the high latency and the volume of data transmitted over the network by such a large number of sensor nodes. For such a system that is highly dependent on accurate, real-time processing of large amounts of data, there is a need for the reduction of transmitted data that still guarantees quality of service (QoS) \cite{gia2015fog}.
+
+Gia et al. \cite{gia2015fog} suggest the “provision of an extra layer in between a conventional gateway and a remote cloud server.” This added layer, the “fog layer”, would serve to preprocess data from the various sensor nodes, expediting the response time of vital applications while simultaneously reducing the volume of data transmitted to the cloud.
+
+\subsection{Web Site Performance}
+
+\subsection{Smart Vehicles}
+
 
 \renewcommand{\refname}{\section{References}}
 \bibliographystyle{ieeetr}
