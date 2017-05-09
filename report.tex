@@ -44,49 +44,52 @@ RAM
 \section{Common Issues}
 % Comments on issue related to communication paradigms, fault tolerance, consistency, reliability, etc.
 % Marking criteria: Quality discussion and explanation on relevant issues as required with clear examples. Discussions of potential enhancement to address any performance issues are provided.
-Though still an emerging field, previous research, such as Yi et al.'s ``survey on fog computing'' \cite{yi2015survey}, has been able to identify multiple potential issues related to fog computing.
 
-In this section, we present the major technical challenges that have been identified by them. In addition, we elaborate on further possible problems related to these issues, and discuss possible solutions. As research in this field appears to be fairly limited, though, the latter aspect is only briefly covered.
+Though still an emerging field, previous research, such as Yi et al.'s ``survey on fog computing'' \cite{yi2015survey}, has been able to identify multiple potential issues related to fog computing. In this section, we summarise their main findings, and provide additional discussion and research related to them whenever possible.
 
-We organise the issues that have been found by Yi et al. around the following areas: network, Quality of Service (QoS), application development, and security and privacy.
+To improve clarity, we organise issues around 5 main areas: networking, optimal use of resources, fault tolerance, application development, and security and privacy. Note that we focus purely on technical issues. Business-related aspects, such as implementation of a viable business model, and billing mechanisms, are not covered.
 
 \subsection{Networking}
-%Motivation for topic: why problematic?
-In order for the fog to function properly, the network has to provide nodes with connectivity, and additional services, such as routing. Due to the specific characteristics of the fog, though, efficiently providing these functions is considered challenging \cite{yi2015survey}.
+In order for the fog to function properly, the network has to provide nodes with connectivity, and additional network services, such as routing. The particular nature of the fog, though, makes the implementation of these functions difficult. 
 
-In contrast to more traditional networks, for example, routing cannot be implemented centralised in a specific subset of nodes. Instead, as each node acts as router, a decentralised routing mechanisms must be used. Due to the mobility of nodes, this mechanism has to be able to deal with frequent changes in the network topology. Real-time requirements of many applications, and the prevalent use of unreliable wireless links make the fast and reliable delivery of packets even more difficult.
+For example, the network has to be highly scalable, providing support for a large number of potential nodes. In addition, it should account for constant topology changes due to node mobility. Ensuring that the system is fully distributed is also an important aspect \cite{yi2015survey}.
 
-In their proposal of a general architecture for the Fog, Bonomi et al. \cite{bonomi2014fog} state that the fog uses virtualisation for ``key resources'', including networking. As example, they suggest Software Defined Networking (SDN). As pointed out by Peng et al. \cite{peng2016fog}, however, SDN does not put ``a high emphasis'' on distribution. Similarly, Yi et al. state that the ``design [of a] distributed SDN system that meet the harsh requirement of fog computing'' is still an open issue.
+Using virtualisation mechanisms, such as SDN, has been deemed as viable solution to these issues \cite{yi2015survey}. In their proposal of a general architecture for the fog, Bonomi et al. \cite{bonomi2014fog} state that the fog should use virtualisation for ``key resources'', including networking. Providing an implementation of SDN for the fog, however, is still an open issue \cite{yi2015survey}. Partly, this appears to be the case because SDN itself does not put ``a high emphasis'' on distribution \cite{peng2016fog}.
 
 
-\subsection{Quality of Service-related Issues}
-\label{sub_issues_qos}
-As described in XX, fog nodes are mainly connected by unreliable wireless links. Availability of resources at these nodes, and capacity of the links can greatly vary across the network. In addition, as the network is highly dynamic, these properties are subject to constant change. Providing nodes with a specific quality of service is therefore challenging.
+\subsection{Optimal resource use}
+\label{sub_opt_res_use}
 
-In the following, we define several possible dimensions of QoS, and discuss techniques to achieve high values for them.
+As stated before, the fog is highly heterogeneous. This heterogeneity is greatly reflected by different degrees of resource availability throughout the system. Important resources are storage, computation power and bandwidth. For example, in parts of the system, available bandwidth might be high due to the presence of more powerful network links, while in others, it can be a scare resource.
 
-According to Tanenbaum and Steen, QoS comprises ``timing (and other nonfunctional) requirements'' \cite{tanebaum2013}. Based on Yi et. al's assessment of quality of service-related issues for the fog, we identify the following basic requirements:
+Naturally, these resources should be ``optimally'' used. However, the actual optimisation goal is highly dependent on the use case: for example, in a real-time application, the main objective is to ensure a small delay. Using more bandwidth or computation power to meet this goal is a valid trade-off. For a computation-heavy application running on a mobile device, in contrast, reducing the amount of computation performed locally on the device might be most important.
 
-\begin{itemize}
-	\item Service availability
-	\item Resource usage
-	\item Delay
-	\item Reliability
-\end{itemize}
+In their paper, Yi et al. \cite{yi2015survey} present several strategies that might be used to optimise resource use under different circumstances. 
+%
+Firstly, they suggest that the adequate placement of data can help optimising bandwidth use. In the previously given example of a real-time application, storing data on nodes that are well-connected to the consumer could significantly reduce delay. 
+%
+As second method, they discuss computation offloading. With this strategy, parts of a computation can be delegated to a different node in the network. In the aforementioned example of the computation-heavy application, for instance, a more powerful node could perform most of the computation-intense work.
+%
+Lastly, they present different methods based on the concept of adjusting the network topology. For example, effectively choosing the relay nodes for one or multiple endpoints could help reducing delay, while increasing throughput.
 
-``Service availability'' describes the availability of specific services to a node. According to \cite{yi2015survey}, this is greatly influenced by the network topology. This makes intuitively sense: if a node is, for example, connected to a router over an unreliable link, it will probably not be able to access network services at all time.
+%TODO discuss pro and cons of approaches (especially in light of high dynamic environment), own suggestions?
 
-Naturally, resources as bandwidth and storage are limited in the fog. \cite{yi2015survey} suggest that placing data effectively can help addressing this issue. In addition, they discuss several techniques for ``computation offloading'', i.e., the movement of tasks from resource-limited devices like mobile phones to more powerful nodes that are located in the fog, or the cloud. This offloading, however, introduces several new issues. Mainly, these are centred around the difficulty of deciding which parts of the application should be offloaded, while accounting for the constant changes in the network due to node mobility.
+\subsection{Fault tolerance}
+As describe before, the fog mainly uses unreliable wireless network links. In addition, nodes are highly mobile. Being able to ensure availability of services, and provide reliability in general are therefore important aspects.
 
-Since many applications for fog computing are set to process data in real-time, maintaining a low delay is critical. The aforementioned techniques of data placement, and choice of network topology can be used here.
+To improve service availability, Yi et al. \cite{yi2015survey} suggest to adjust the network topology (see section \ref{sub_opt_res_use}). For instance, they present the idea of dividing a network into several clusters, with each cluster centred around a ``rich-resource'' node.
 
-Finally, to improve reliability, \cite{yi2015survey} suggest that replication might be used. Traditional techniques like checkpointing, or rescheduling, in contrast, are argued to introduce much delay, and are therefore unfit for real-time applications.
+Traditionally, reliability in a distributed system can be provided by the means of techniques such as checkpointing or rescheduling (see \cite{tanebaum2013}). According to Yi et al. \cite{yi2015survey}, though, most of these techniques are unfit for the fog, as they introduce too much delay. They conclude that replication might work, but they expect it to be difficult to implement due to the distributed nature of the system. Additional research on the topic does not seem to exist. Madsen et al. \cite{madsen2013reliability} claim to provide such, but fail to give any actual fog computing-related insights.
+
 
 \subsection{Application Development}
-%Intro: why problematic? what is main issue?
-As stated in section XX, the fog is dynamic in regards to network topology, and resource availability. In addition, fog nodes might by based on different platforms and system architectures. Resulting from this, developing applications in a fog computing context is expected to be challenging \cite{yi2015survey}. To counter this issue, Bonomi et al. \cite{bonomi2014fog} propose a ``fog abstraction layer'' that hides the underlying heterogeneity, and provides developers with a ``uniform and programmable interface''. Yi et al. make a similar suggestion by calling for a ``unified interfacing and programming model'' \cite{yi2015survey}.
+As stated in section XX, the fog is dynamic in regards to network topology, and resource availability. In addition, fog nodes might run on different platforms and system architectures \cite{yi2015survey}. Developing applications that are able to run in this environment, and provide high compatibility, can be expected to be difficult. 
 
-Though the necessity of these abstraction layers is obvious, we expect that the initially mentioned characteristics of the fog will make an actual implementation highly challenging. Moreover, if devices from different vendors are set to work together, an industry-wide standard has to be developed.
+To ease development, Bonomi et al. \cite{bonomi2014fog} propose a ``fog abstraction layer'' that hides the underlying heterogeneity, and provides developers with a ``uniform and programmable interface''. Yi et al. make a similar suggestion by calling for a ``unified interfacing and programming model'' \cite{yi2015survey}.
+
+Due to issues mentioned in the beginning, though, we expect that the implementation of such a layer is challenging. Moreover, providing compatibility between nodes from different vendors might be hard, as the field is still emerging, and there is no industry-wide standard yet.
+
+%TODO: what about cisco?
 
 \subsection{Security and Privacy}
 Many applications that have been proposed for fog computing are safety-critical, and/or process sensitive data. For example, in vehicle-to-vehicle communication, an insecure system that allows attackers to remotely control the car could have disastrous consequences. In home automation, users might be worried that unwanted parties could learn about their daily routine.
