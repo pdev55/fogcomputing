@@ -67,13 +67,12 @@ Naturally, these resources should be ``optimally'' used. However, the actual opt
 
 In their paper, Yi et al. \cite{yi2015survey} present several strategies that might be used to optimise resource use under different circumstances. 
 %
-Firstly, they suggest that the adequate placement of data can help optimising bandwidth use. In the previously given example of a real-time application, storing data on nodes that are well-connected to the consumer could significantly reduce delay. 
+Firstly, they suggest that the adequate placement of data can help optimising bandwidth use. In the previously given example of a real-time application, storing data on nodes that are well-connected to the consumer could significantly reduce delay. This placement, however, has to take the dynamic nature of the fog into account. If a node changes location, for example, data placement on the same node can result in small latencies at one time, but introduce great delays at another time. Even if the location of the consumer does not change, available bandwidth at a link might, e.g. if more nodes are interested in the data.
 %
-As second method, they discuss computation offloading. With this strategy, parts of a computation can be delegated to a different node in the network. In the aforementioned example of the computation-heavy application, for instance, a more powerful node could perform most of the computation-intense work.
+Besides placing data, the authors also suggest to place computations. Using ``computation offloading'', parts of a computation can be delegated to a different node in the network. In the aforementioned example of the computation-heavy application, for instance, a more powerful node could perform most of the computation-intense work. Determining which parts of the computation to offload to which nodes, though, can be challenging. As for data placement, this is largely due to the dynamic nature of the fog.
 %
-Lastly, they present different methods based on the concept of adjusting the network topology. For example, effectively choosing the relay nodes for one or multiple endpoints could help reducing delay, while increasing throughput.
+Lastly, they present different methods based on the concept of adjusting the network topology. For example, effectively choosing the relay nodes for one or multiple endpoints could help reducing delay, while increasing throughput. Again, however, constant changes in the environment, especially the topology, make this selection challenging.
 
-%TODO discuss pro and cons of approaches (especially in light of high dynamic environment), own suggestions?
 
 \subsection{Fault tolerance}
 As describe before, the fog mainly uses unreliable wireless network links. In addition, nodes are highly mobile. Being able to ensure availability of services, and provide reliability in general are therefore important aspects.
@@ -81,6 +80,8 @@ As describe before, the fog mainly uses unreliable wireless network links. In ad
 To improve service availability, Yi et al. \cite{yi2015survey} suggest to adjust the network topology (see section \ref{sub_opt_res_use}). For instance, they present the idea of dividing a network into several clusters, with each cluster centred around a ``rich-resource'' node.
 
 Traditionally, reliability in a distributed system can be provided by the means of techniques such as checkpointing or rescheduling (see \cite{tanebaum2013}). According to Yi et al. \cite{yi2015survey}, though, most of these techniques are unfit for the fog, as they introduce too much delay. They conclude that replication might work, but they expect it to be difficult to implement due to the distributed nature of the system. Additional research on the topic does not seem to exist. Madsen et al. \cite{madsen2013reliability} claim to provide such, but fail to give any actual fog computing-related insights.
+
+%"However, taking a checkpoint is often a costly operation and may have a severe performance penalty." (p. 364)
 
 
 \subsection{Application Development}
