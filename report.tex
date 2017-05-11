@@ -31,9 +31,17 @@ Semester 1, 2017}
 
 \section{Introduction}
 
-Fog computing is a new, exciting computing paradigm \cite{bonomi2012fog}.
+Fog computing is a new, exciting computing paradigm \cite{bonomi2012fog} that serves as an extension to cloud computing. It allows for tasks traditionally performed at the cloud server to be performed directly by -- or at nodes in closer proximity to -- edge devices.
 
-The introduction is clear with several definitions of the computing paradigm under study for comparison. The structure of the report is presented.
+Cloud computing refers to the usage of remote servers for the purpose of storing, managing, or processing data. Cloud computing has enabled the development and proliferation of advanced services that were previously impossible, like the recognition of voice commands on a smart phone; the phone merely serves as a collector of raw audio data from the user then transmits that data to the cloud where it is processed and the information relevant to the user's query is collected to be sent back to the user.
+
+As the number of devices requesting data from the cloud rises, and the Internet of Things (IoT), the inter-networking of everyday objects via the Internet, continues to expand, cloud services are facing the ever-growing challenge of scaling to accomodate the rising number of objects transmitting and receiving data. This puts a strain on bandwidth as the millions of devices are in a state of constant connection with to the cloud.
+
+Inherent in cloud computing is the problem of latency; data is stored and processed at remote servers in off-site locations that could be anywhere in the world. In addition, the quality of a cloud-based service is highly dependent on the network conditions of a region or area. When you lose your connection to the Internet, you lose the ability to use these services. These are two of the greatest problems faced by developers of smart services that rely on low-latency or real-time response and highly-reliable connections, such as health and emergency services. A delay of even a half-second could pose a safety risk or affect treatment.
+
+Fog computing solves these problems by offloading much of the workload of the cloud server to devices that are closer to the edge \cite{cisco2015fogcomputing}. These devices, or "fog nodes", can be any device with storage and processing power. This means more data is stored and processed locally, reducing the volume of network traffic being sent to and from the cloud, and since more of the data analysis and processing is performed at a location much closer to the user, latency, and subsequently response time, is greatly diminished.
+
+This report will go into detail about the architecture and models of fog computing, common issues in the implementation of fog computing, and real-use applications of the paradigm.
 
 \section{Architectures and Models}
 Compare and contrast different architectures and models with examples to back the arguments.
@@ -125,7 +133,7 @@ Surveillance and security camers generate massive volumes of data; a single may 
 
 Fog-based deployments provide real-time tracking and anomaly detection from a location much closer to the edge. Fog nodes can be designed to intelligently partition video processing between the various edge devices and the cloud. Video analytics can be performed at fog nodes, reducing latency and allowing for quicker response times in emergency situations. Relevant data can then be sent to the cloud to allow for historical analysis over long periods of time and enable data sharing between multiple locations (for example, the sharing of data between airports or multiple locations of a hotel chain).
 
-Fog computing provides a solution that is scalable and more secure. Recent camera data is stored at fog gateways located close to the edge and long-term data is stored in the cloud to allow for analysis of long-term trends. The addition of an extra layer between the edge and the cloud suggests additional security steps in the process of sending data from edge devices to the cloud. Raw camera data is analyzed at the fog gateways, where rules can be established to determine which data must be sent to the cloud and which can be stored locally, and video processing can be partitioned intelligently between the cloud, the fog gateway, and the edge devices.
+Fog computing provides a solution that is scalable and more secure. Recent camera data is stored at fog gateways located close to the edge for security analysis purposes, and long-term data is sent to the cloud to allow for possible analysis of long-term trends. The addition of an extra layer between the edge and the cloud implies additional security steps in the process of sending data from edge devices to the cloud. Raw camera data is analyzed at the fog gateways, where rules can be established to determine which data must be sent to the cloud and which can be stored locally, and video processing can be partitioned intelligently between the cloud, the fog gateway, and the edge devices.
 
 \subsection{Smart Cities - Traffic Congestion Management}
 Traffic management is an ever-growing challenge faced by major cities where road congestion can be attributed to lost productivity, slower response times from emergency services, and high carbon emissions. Various factors that contribute to traffic congestion simply can not be predicted, such as accidents and weather. In addition, traffic management is a challenge that spans multiple jurisdictions; the development and implementation of potential solutions takes place in isolation within each department, hindering information sharing and integration initiatives \cite{openfogconsortium2017trafficmanagement}.
