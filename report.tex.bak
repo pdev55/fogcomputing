@@ -63,7 +63,7 @@ Wangbong lee et.al\cite{lee2016gateway} proposed a Gateway based fog computing a
 
 The nodes could be seen as classified into Slave Nodes and Master nodes. Slave nodes took care of functions such as flow management,virtual gateway and resource management whereas the Master Nodes had control over the functionalities of the Slaves\cite{lee2016gateway}. The gateways had their own role where they functioned as a Master/Slave node. 
 
-Flow management for this setup was based on software defined network such as OpenFlow, and virtual function management needed a light version of NFV(Near Field View) architecture such as ClickOS[] which helped in network function virtualization.
+Flow management for this setup was based on software defined network such as OpenFlow, and virtual function management needed a light version of NFV(Near Field View) architecture such as ClickOS\cite{martins2014clickos} which helped in network function virtualization.
 The architecture provided helped virtualize WSAN and the model was event driven. It provided virtual event from networked objects and shared them to various applications.
 
 The figure 1 shown below\cite{lee2016gateway} looks at the architecture both from a Physical and Logical View.
@@ -104,10 +104,10 @@ The setup(See Figure below)\cite{tomovic2017software} involved end devices with 
 \includegraphics[scale=0.7]{sdn.png}
 
 The fog nodes exposed a set of APIs (Application Programming Interfaces) for application deployment and development, resource management and control.Since IoT applications may be geo-spatially distributed, they assumed hierarchical deployment of Fog network. 
-Mobile Fog programming model\cite{Hong, K., Lillethun} was used in the development of IoT applications using hierarchically deployed and heterogeneous Fog resources.
+Mobile Fog programming model\cite{hong2013mobile} was used in the development of IoT applications using hierarchically deployed and heterogeneous Fog resources.
 The final application consisted of multiple processes that performed different tasks based on the device capability and position in the network hierarchy.
 
-For example, tasks of large-scale video surveillance application were organized in three levels: motion detection at IP camera, face recognition at edge Fog nodes and aggregation of identities at Cloud server.
+For example, tasks of large-scale video surveillance application were organized in three levels: motion detection at IP camera, face recognition at edge Fog nodes and aggregation of identities at Cloud server\cite{tomovic2017software}.
 
 As discussed earlier, since IoT applications deal with dynamic workload due to periodic or event-driven data delivery models, they should be transparently scaled at the runtime without resource over-provisioning. In order to achieve that, Slavica Tomovic et.al\cite{tomovic2017software} proposed logical centralization of orchestration functionality at the SDN controller.
 To achieve that,the design of SDN controller was modified compared to traditional one used in DC networks\cite{tomovic2017software}.
@@ -129,6 +129,128 @@ through this component before being sent, which allowed the control plane elemen
 Important Use cases of such a system would be Smart Transportation, Video Surveillance etc where low latency and real time streaming takes preference.Besides Fog computing, the presented system model can also exploit benefits of SDN to dynamically assign higher priority to some traffic flows in emergency situations, and hence guarantees low-latency. 
 The applications are discussed in detail under the Applications section.
 \pagebreak
+\subsection{OpenFog Reference Architecture}
+
+The OpenFog Reference Architecture is the product of the OpenFog Architecture Workgroup, co-chaired by Charles Byers (Cisco) and Robert Swanson (Intel)\cite{openfogconsortium2017}. 
+It represents the collaborative work of the global membership of the OpenFog Consortium\cite{openfogconsortium2017}. 
+The OpenFog Consortium was formed in November 2015 and is based on the principle that an open fog computing architecture is necessary in today’s increasingly connected world\cite{openfogconsortium2017}.
+
+The main idea behind OpenFog RA was to help business leaders, software developers, silicon architects, and system designers create and maintain the hardware, software and system elements necessary for fog computing and it provides a medium- to high-level view of system architectures for fog nodes and networks.
+
+To sustain IoT momentum,which usually comes with high data velocity and volume,the OpenFog Consortium is defining an architecture to address infrastructure and connectivity challenges by emphasizing information processing and intelligence at the logical edge which is Fog Computing.
+
+The OpenFog RA describes a generic fog platform that is designed to be applicable to any vertical market or application. This architecture is applicable across many different markets including, but not limited to, transportation, agriculture, smart-cities, smart–buildings, healthcare, hospitality, financial services, and more, providing business value for IoT applications that require real-time decision making, low latency, improved security, and are network-constrained\cite{openfogconsortium2017}.
+
+The OpenFog RA is driven by a set of core principles called pillars\cite{openfogconsortium2017}.
+The pillars can be thought of as the key attributes that a system needs to adhere to to embody the OpenFog definition of a horizontal, system-level architecture that provides the distribution of computing, storage, control, and networking functions closer to the data source\cite{openfogconsortium2017}.
+
+The Pillars\cite{openfogconsortium2017} are 
+\begin{itemize}
+\item Security - Security in OpenFog RA describes all of the mechanisms that can be applied to make a fog node secure. All fog nodes must employ a hardware-based immutable root of trust. The Hardware Root of Trust is a trusted hardware component which receives control at power-on. It then extends the chain of trust to other hardware, firmware, and software components. The root of trust should then be attestable by software agents running within and throughout the infrastructure.
+
+\item Scalability - Since the hierarchical nature of Fog adds Scaling opportunities, this pillar addresses the dynamic technical and business needs behind fog deployments. Because of the variability in the use cases for fog computing, the OpenFog RA enables elastic scaling based on Demand.
+
+\item Openness - Openness as a basic principle enables fog nodes to exist anywhere in a network and span across networks thereby enabling pooling by discovery, which means that new software-defined fog nodes can be dynamically created to solve a business mission.
+
+\item Autonomy - This pillar enables fog nodes to continue to deliver the intended functionality in the face of the external service failures. In this architecture, autonomy is supported throughout the hierarchy and therefore the decision making will be made at all levels of a deployment’s hierarchy including near the device or higher order layers. It does not rely upon a centralized system for operation (e.g. a backend cloud)
+
+\item Programmability - This pillar enables highly adaptive deployments including support for programming at the software and hardware layers. This means that we can completely automate re-tasking of a fog node or a cluster of fog nodes. The fog nodes' inherent programmability interfaces is made use of in such a case.
+
+\item Reliability, Availability and Serviceability (RAS) - Hardware, software, and operations are the three main areas of the RAS pillar and as such takes on great importance in the OpenFog RA. 
+A reliable deployment will therefore continue to perform as expected under all conditions. Availability ensures continuous management and orchestration, which is usually measured in uptime while Servicing a fog deployment ensures correct operation.
+
+\item Agility - This pillar addresses the business operational decisions for an OpenFog RA deployment. It also deals with the highly dynamic nature of fog deployments and the need to respond quickly to change.
+
+\item Hierarchy - This pillar ensures that the OpenFog RA is complementary to traditional cloud architectures. Depending on the scale and nature of the scenario being addressed, the hierarchy may be a network of smart and connected partitioned systems arranged in physical or logical layers, or it may collapse into a single physical system (scalability pillar).
+\end{itemize}  
+
+\subsubsection{OpenFog RA description - Views and Perspectives}
+
+The OpenFog RA description is a composite representation of various stakeholder concerns which are referred to as views\cite{openfogconsortium2017}. The stakeholders and their associated views are identified because they are required to facilitate any successful fog based deployment\cite{openfogconsortium2017}. 
+
+The functional viewpoint of the architecture describes how the OpenFog architectural elements and views are applied to satisfy the stakeholders requirements/concerns on a given scenario. It is however important to note that these change over time. 
+
+The Deployment viewpoint addresses how the fog software and fog systems are deployed in order to satisfy a given stakeholder scenario. The deployments generally happen in a Hierarchical based model where the number of tiers will be dictated by the scenario requirements\cite{openfogconsortium2017}.
+The scenarios might be the amount and type of work required by each tier or the Number of sensors required for the deployment and so on.
+
+The abstract architecture comprising of the views and perspectives is shown below\cite{openfogconsortium2017}
+
+
+\includegraphics[scale=0.7]{figa.png}
+
+
+
+The above figure includes grey vertical bars on the sides of the views which are referred to as Perspectives\cite{openfogconsortium2017}.
+
+Perspectives can be thought of as concerns that are to be employed in the fog implementation.They are listed below.
+
+\begin{itemize}
+\item Performance - This is a cross cutting concern as it impacts system and deployment scenario. Eg Low Latency
+
+\item Security - Data integrity is a special aspect of security for devices that currently lack adequate security. This includes intentional and unintentional corruption.
+
+\item Manageability - Managing all aspects of fog deployments, which include RAS, DevOps etc. 
+
+\item Data Analysis and Control -  The Autonomy of fog nodes requires localized data analytics coupled with control.
+
+\item IT Business and Cross Fog Applications -  Ability to migrate and properly operate at any level of a fog deployment’s hierarchy.  
+\end{itemize}
+
+The views(representation of stakeholder concerns)\cite{openfogconsortium2017} described in the OpenFog RA description include 
+\begin{itemize}
+\item Software View - Represented in the top 3 layers shown in figure above and Include Application Services, Application Support, and Node Management (IB) and Software Backplane.
+
+\item System View - Represented in the middle Layers shown in fig above and include Hardware Virtualization down through the Hardware Platform Infrastructure.
+
+\item Node View - Represented in the bottom layers shown in fig above and includes the Protocol Abstraction Layer and Sensors, Actuators, and Control.
+\end{itemize} 
+
+\subsubsection{OpenFog Reference Architecture Deployment Models} 
+In most fog deployment models,there are usually several tiers (N-tiers) of nodes. 
+Depending on the use-case/scenario, multiple fog and cloud elements may collapse into a single physical deployment. Each fog element may also represent a mesh of peer fog nodes in use cases like connected cars, electrical vehicle charging, and closed loop traffic systems.
+The models discussed below\cite{openfogconsortium2017} use a combination of fog and cloud deployment to address various domain scenarios as framed by the layered view of IoT systems. 
+\begin{itemize}
+\item - Fog Model Independent of the Cloud
+This model is mainly used in cases where cloud cant be used. The reasons might be response time concern, compliance to regulations, security and privacy, and unavailability of a centralised cloud. 
+Use Cases include armed forces combat systems, drone operations, some healthcare systems, hospitals, and ATM banking systems\cite{openfogconsortium2017}.
+
+\item - Model using Cloud for Business Support
+This model uses cloud for Business Support ( information processing related to decision making).  However the actual Operation-centric information processing is done by fog deployments located close to the infrastructure/process being managed.
+Use Cases include commercial building management, commercial solar panel monitoring, and retail\cite{openfogconsortium2017}.
+
+\item - Model using Cloud for Business and Operational Support
+This model uses local fog infrastructure for time-sensitive computation, while the cloud is used for the balance of operational and business-related information processing.    
+Use Cases include commercial UPS device monitoring, mobile network acceleration, and content delivery networks (CDNs) for Internet acceleration\cite{openfogconsortium2017}.
+
+\item - Model using Minimal/no Fog infrastructure
+This model leverages the cloud for the entire process due to the constrained environments in which the deployment of fog infrastructure may not be feasible or economical. However fog nodes that are at device layer may get some monitoring and control functions for safety related control.
+Use cases include agriculture, connected cars, and remote weather stations\cite{openfogconsortium2017}
+\end{itemize}
+The models discussed above might be summarised using the figure given below
+\cite{openfogconsortium2017}.
+
+
+\includegraphics[scale=0.7]{models.png}  
+
+
+\subsection{Fog Computing Vs Cloud Computing vs Edge Computing}
+
+Fog computing is a highly virtualized platform which provides computation, storage between the end nodes in the IoT and traditional clouds\cite{aazam2015dynamic}.
+
+There are some differences between fog and cloud computing.The key difference is the fog’s proximity to the underlying accessing nodes.
+In contrast to the cloud, which is more centralized,fog computing targets the services and applications with widely distributed deployments\cite{aazam2015dynamic}and hence is more localized. Fog can therefore be seen as a descended cloud.
+The Quality of the core network hence becomes richer when compared to a cloud as fog is available locally. Fog also provides improved Mobility as the nodes extend close to the edge of the network and this in turn provides Location awareness as well which is not provided by traditional cloud. 
+Furthermore, Access methods of cloud are fixed and wireless while that of fog is mostly wireless.  
+
+Fog computing also is often erroneously called edge computing, but there are key differences. Fog works with the cloud, whereas edge is defined by the exclusion of cloud\cite{openfogconsortium2017}. 
+Fog is hierarchical, where edge tends to be limited to a small number of layers. In additional to computation, fog also addresses networking, storage, control and acceleration\cite{openfogconsortium2017}.
+
+A quick use case example to illustrate the value of fog\cite{openfogconsortium2017}: 
+Consider an oil pipeline with pressure and flow sensors and control valves. One could transport all those sensor readings to the cloud (perhaps using expensive satellite links), analyze the readings in cloud servers to detect abnormal conditions, and send commands back to adjust the positon of the valves.
+There are several problems with this scenario: the bandwidth to transport the sensor and actuator data to and from the cloud could cost many thousands of dollars per month; those connections could be susceptible to hackers; it may take several hundred milliseconds to react to an abnormal sensor reading (during which time a major leak could spill significant oil); and if the connection to the cloud is down, or the cloud is overloaded, control is lost. 
+
+Now, consider having a hierarchy of local fog nodes near the pipeline. They can connect to sensors and actuators with inexpensive local networking facilities. Fog nodes can be highly secure, lessening the hacker threat. Fog nodes being closer, can react to abnormal conditions in milliseconds, quickly closing valves to greatly reduce the severity of spills. 
+Local control in the fog nodes produces a more robust control system. Moving most of the decision-making functions of this control system to the fog, and only contacting the cloud occasionally to report status or receive commands, creates a superior control system.
 
 \section{Common Issues}
 % Comments on issue related to communication paradigms, fault tolerance, consistency, reliability, etc.
