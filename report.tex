@@ -31,17 +31,17 @@ Semester 1, 2017}
 
 \section{Introduction}
 
-Fog computing is a new, exciting computing paradigm \cite{bonomi2012fog} that serves as an extension to cloud computing. It allows for tasks traditionally performed at the cloud server to be performed directly by -- or at nodes in closer proximity to -- edge devices.
+In the recent years, cloud computing has experienced an enormous boom: with resources like compute and storage provided as a service, developers have been able to create a completely new kind of applications. For instance, a computation-intense process such as text-to speech can now be provided on a resource-constraint mobile device, simply by delegating the majority of the computations to a cloud service.
+%
+%Main issues with cloud: delay (distancce + mobility), scalablity
+As the number of devices requesting data from the cloud rises, and the Internet of Things (IoT), the inter-networking of everyday objects via the Internet, continues to expand, cloud services are facing the ever-growing challenge of scaling to accommodate the increasing number of objects transmitting and receiving data. In addition, with data centres often located hundreds of kilometres away from the user, keeping latencies low is also a challenge. While this might not be an issue in some use cases, applications like connected vehicles are expected to process great amounts of data in real time. If information about an upcoming red traffic light would be, for example, delayed by a second, the vehicle might fail to brake in time, causing great disaster. 
 
-Cloud computing refers to the usage of remote servers for the purpose of storing, managing, or processing data. Cloud computing has enabled the development and proliferation of advanced services that were previously impossible, like the recognition of voice commands on a smart phone; the phone merely serves as a collector of raw audio data from the user then transmits that data to the cloud where it is processed and the information relevant to the user's query is collected to be sent back to the user.
+Fog computing, a new computing paradigm, is set to address these issues. Described as extension of cloud computing ``to the edge of the network'' \cite{bonomi2012fog}, it moves traditional cloud services like storage, networking and compute to devices that are closer to the edge \cite{cisco2015fogcomputing}. This not only enables location-aware services, but also dramatically helps reducing delays, and thus, make real-time applications possible. In addition, fog based systems also support large numbers of devices, so-called ``fog nodes'', that are possibly widely geographically distributed, and highly mobile. Network connections are mostly wireless, and the network itself is heterogeneous, consisting of different types of nodes \cite{bonomi2012fog}.
 
-As the number of devices requesting data from the cloud rises, and the Internet of Things (IoT), the inter-networking of everyday objects via the Internet, continues to expand, cloud services are facing the ever-growing challenge of scaling to accomodate the rising number of objects transmitting and receiving data. This puts a strain on bandwidth as the millions of devices are in a state of constant connection with to the cloud.
+In this essay, we provide an overview of the emerging area of fog computing. In the first section, we present different architectures for fog-based systems. Then, in the second section, we discuss common issues associated with the fog in general. Finally, we illustrate the benefits of using the fog by giving three examples for real-world applications.
 
-Inherent in cloud computing is the problem of latency; data is stored and processed at remote servers in off-site locations that could be anywhere in the world. In addition, the quality of a cloud-based service is highly dependent on the network conditions of a region or area. When you lose your connection to the Internet, you lose the ability to use these services. These are two of the greatest problems faced by developers of smart services that rely on low-latency or real-time response and highly-reliable connections, such as health and emergency services. A delay of even a half-second could pose a safety risk or affect treatment.
+As fog computing is still a fairly new field, though, many details concerning concrete architectures, or implementation specifics remain open, and should therefore be considered content of future work.
 
-Fog computing solves these problems by offloading much of the workload of the cloud server to devices that are closer to the edge \cite{cisco2015fogcomputing}. These devices, or "fog nodes", can be any device with storage and processing power. This means more data is stored and processed locally, reducing the volume of network traffic being sent to and from the cloud, and since more of the data analysis and processing is performed at a location much closer to the user, latency, and subsequently response time, is greatly diminished.
-
-This report will go into detail about the architecture and models of fog computing, common issues in the implementation of fog computing, and real-use applications of the paradigm.
 
 \section{Architectures and Models}
 Fog computing is an emerging cloud paradigm that extends the traditional cloud computing paradigm to the edge of the network to decrease latency and network congestion,enabling the creation of refined and better applications or services. Fog is an edge computing and micro data center (MDC) paradigm for IoTs and wireless sensor networks (WSNs).
@@ -234,23 +234,6 @@ The models discussed above might be summarised using the figure given below
 
 \subsection{Fog Computing Vs Cloud Computing vs Edge Computing}
 
-Fog computing is a highly virtualized platform which provides computation, storage between the end nodes in the IoT and traditional clouds\cite{aazam2015dynamic}.
-
-There are some differences between fog and cloud computing.The key difference is the fog’s proximity to the underlying accessing nodes.
-In contrast to the cloud, which is more centralized,fog computing targets the services and applications with widely distributed deployments\cite{aazam2015dynamic}and hence is more localized. Fog can therefore be seen as a descended cloud.
-The Quality of the core network hence becomes richer when compared to a cloud as fog is available locally. Fog also provides improved Mobility as the nodes extend close to the edge of the network and this in turn provides Location awareness as well which is not provided by traditional cloud. 
-Furthermore, Access methods of cloud are fixed and wireless while that of fog is mostly wireless.  
-
-Fog computing also is often erroneously called edge computing, but there are key differences. Fog works with the cloud, whereas edge is defined by the exclusion of cloud\cite{openfogconsortium2017}. 
-Fog is hierarchical, where edge tends to be limited to a small number of layers. In additional to computation, fog also addresses networking, storage, control and acceleration\cite{openfogconsortium2017}.
-
-A quick use case example to illustrate the value of fog\cite{openfogconsortium2017}: 
-Consider an oil pipeline with pressure and flow sensors and control valves. One could transport all those sensor readings to the cloud (perhaps using expensive satellite links), analyze the readings in cloud servers to detect abnormal conditions, and send commands back to adjust the positon of the valves.
-There are several problems with this scenario: the bandwidth to transport the sensor and actuator data to and from the cloud could cost many thousands of dollars per month; those connections could be susceptible to hackers; it may take several hundred milliseconds to react to an abnormal sensor reading (during which time a major leak could spill significant oil); and if the connection to the cloud is down, or the cloud is overloaded, control is lost. 
-
-Now, consider having a hierarchy of local fog nodes near the pipeline. They can connect to sensors and actuators with inexpensive local networking facilities. Fog nodes can be highly secure, lessening the hacker threat. Fog nodes being closer, can react to abnormal conditions in milliseconds, quickly closing valves to greatly reduce the severity of spills. 
-Local control in the fog nodes produces a more robust control system. Moving most of the decision-making functions of this control system to the fog, and only contacting the cloud occasionally to report status or receive commands, creates a superior control system.
-
 \section{Common Issues}
 % Comments on issue related to communication paradigms, fault tolerance, consistency, reliability, etc.
 % Marking criteria: Quality discussion and explanation on relevant issues as required with clear examples. Discussions of potential enhancement to address any performance issues are provided.
@@ -262,10 +245,9 @@ To improve clarity, we organise issues around 5 main areas: networking, optimal 
 \subsection{Networking}
 In order for the fog to function properly, the network has to provide nodes with connectivity, and additional network services, such as routing. The particular nature of the fog, though, makes the implementation of these functions difficult. 
 
-For example, the network has to be highly scalable, providing support for a large number of potential nodes. In addition, it should account for constant topology changes due to node mobility. Ensuring that the system is fully distributed is also an important aspect \cite{yi2015survey}.
+For example, the network has to be highly scalable, providing support for a large number of potential nodes. In addition, it should be able to cope with constant topology changes caused by node mobility.
 
-Using virtualisation mechanisms, such as SDN, has been deemed as viable solution to these issues \cite{yi2015survey}. In their proposal of a general architecture for the fog, Bonomi et al. \cite{bonomi2014fog} state that the fog should use virtualisation for ``key resources'', including networking. Providing an implementation of SDN for the fog, however, is still an open issue \cite{yi2015survey}. Partly, this appears to be the case because SDN itself does not put ``a high emphasis'' on distribution \cite{peng2016fog}.
-
+Using virtualisation mechanisms, such as SDN, has been deemed as viable solution to these issues \cite{yi2015survey}. In their proposal of a general architecture for the fog, Bonomi et al. \cite{bonomi2014fog} state that the fog should use virtualisation for ``key resources'', including networking. An architecture based on SDN is described in section XX. Using SDN, however, might not always be an option, as the as it puts ``a high emphasis'' \cite{peng2016fog} on a centralised architecture, with a small number of ``SDN controllers'' in charge. This basically creates a single point of failure: if the controllers cannot be reached, e.g. due to unreliable network links, the system is not able to function properly. To make the network more robust, a decentralised model as described by \cite{yi2015survey} might be used, where  ``each node should be able to act as a router for nearby nodes''. 
 
 \subsection{Optimal resource use}
 \label{sub_opt_res_use}
