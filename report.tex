@@ -143,10 +143,9 @@ To improve clarity, we organise issues around 5 main areas: networking, optimal 
 \subsection{Networking}
 In order for the fog to function properly, the network has to provide nodes with connectivity, and additional network services, such as routing. The particular nature of the fog, though, makes the implementation of these functions difficult. 
 
-For example, the network has to be highly scalable, providing support for a large number of potential nodes. In addition, it should account for constant topology changes due to node mobility. Ensuring that the system is fully distributed is also an important aspect \cite{yi2015survey}.
+For example, the network has to be highly scalable, providing support for a large number of potential nodes. In addition, it should be able to cope with constant topology changes caused by node mobility.
 
-Using virtualisation mechanisms, such as SDN, has been deemed as viable solution to these issues \cite{yi2015survey}. In their proposal of a general architecture for the fog, Bonomi et al. \cite{bonomi2014fog} state that the fog should use virtualisation for ``key resources'', including networking. Providing an implementation of SDN for the fog, however, is still an open issue \cite{yi2015survey}. Partly, this appears to be the case because SDN itself does not put ``a high emphasis'' on distribution \cite{peng2016fog}.
-
+Using virtualisation mechanisms, such as SDN, has been deemed as viable solution to these issues \cite{yi2015survey}. In their proposal of a general architecture for the fog, Bonomi et al. \cite{bonomi2014fog} state that the fog should use virtualisation for ``key resources'', including networking. An architecture based on SDN is described in section XX. Using SDN, however, might not always be an option, as the as it puts ``a high emphasis'' \cite{peng2016fog} on a centralised architecture, with a small number of ``SDN controllers'' in charge. This basically creates a single point of failure: if the controllers cannot be reached, e.g. due to unreliable network links, the system is not able to function properly. To make the network more robust, a decentralised model as described by \cite{yi2015survey} might be used, where  ``each node should be able to act as a router for nearby nodes''. 
 
 \subsection{Optimal resource use}
 \label{sub_opt_res_use}
