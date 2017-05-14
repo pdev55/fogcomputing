@@ -150,46 +150,45 @@ Important use cases of such a system would be smart transportation, video survei
 
 \subsection{OpenFog Reference Architecture}
 
-The OpenFog Reference Architecture is the product of the OpenFog Architecture workgroup, co-chaired by Charles Byers (Cisco) and Robert Swanson (Intel)\cite{openfogconsortium2017}. 
-It represents the collaborative work of the global membership of the OpenFog consortium\cite{openfogconsortium2017}. 
-The OpenFog consortium was formed in November 2015 and is based on the principle that an open fog computing architecture is necessary in today’s increasingly connected world\cite{openfogconsortium2017}.
+The OpenFog Reference Architecture (OpenFog RA) is the product of the OpenFog Architecture Workgroup, co-chaired by Charles Byers (Cisco) and Robert Swanson (Intel), and represents the collaborative work of the global membership of the OpenFog Consortium \cite{openfogconsortium2017}. The OpenFog Consortium was formed in November 2015 and is based on the principle that an open fog computing architecture is necessary in today’s increasingly connected world \cite{openfogconsortium2017}.
 
-The main idea behind OpenFog RA was to help business leaders, software developers, silicon architects, and system designers create and maintain the hardware, software and system elements necessary for fog computing and it provides a medium to high level view of system architectures for fog nodes and networks\cite{openfogconsortium2017}.
+The main idea behind the OpenFog RA is to help business leaders, software developers, silicon architects, and system designers create and maintain the hardware, software and system elements necessary for fog computing and provide a medium to high level view of system architectures for fog nodes and networks \cite{openfogconsortium2017}.
 
-The OpenFog RA describes a fog platform that is generic and could be designed to be fit any vertical market or application. 
-This architecture is applicable across many different markets including, but not limited to, transportation, agriculture, smart-cities, smart–buildings, healthcare, hospitality, financial services, and more, providing business value for IoT applications that require real-time decision making, low latency, improved security, and are network-constrained\cite{openfogconsortium2017}.
+The OpenFog RA describes a fog platform that is generic and can be designed to be fit any vertical market or application. 
+This architecture is applicable across many different markets including, but not limited to, transportation, agriculture, smart-cities, smart–buildings, healthcare, hospitality, financial services, and more, providing business value for IoT applications that require real-time decision making, low latency, improved security, and are network-constrained \cite{openfogconsortium2017}.
 
-The OpenFog RA is driven by a set of core principles called pillars\cite{openfogconsortium2017}.
-The pillars can be thought of as the key attributes that a system needs to adhere to to embody the OpenFog definition of a horizontal, system-level architecture that provides the distribution of computing, storage, control, and networking functions closer to the data source\cite{openfogconsortium2017}.
+The OpenFog RA is driven by a set of core principles called pillars \cite{openfogconsortium2017}.
+The pillars can be thought of as the key attributes that a system needs to adhere to to embody the OpenFog definition of a horizontal, system-level architecture that provides the distribution of computing, storage, control, and networking functions closer to the data source \cite{openfogconsortium2017}.
 
-The Pillars\cite{openfogconsortium2017} are 
+The Pillars \cite{openfogconsortium2017} are:
+
 \begin{itemize}
-\item Security - Security in OpenFog RA describes all of the mechanisms that can be applied to make a fog node secure. 
+\item Security - Security in the OpenFog RA describes all of the mechanisms that can be applied to make a fog node secure. 
 
-\item Scalability - Since the hierarchical nature of fog adds scaling opportunities, this pillar addresses the dynamic technical and business needs behind fog deployments. Because of the variability in the use cases for fog computing, the OpenFog RA enables elastic scaling based on demand\cite{openfogconsortium2017}.
+\item Scalability - Since the hierarchical nature of fog adds scaling opportunities, this pillar addresses the dynamic technical and business needs behind fog deployments. Because of the variability in the use cases for fog computing, the OpenFog RA enables elastic scaling based on demand \cite{openfogconsortium2017}.
 
-\item Openness - Openness as a basic principle enables fog nodes to be present anywhere in a network and span across networks thereby enabling pooling by discovery, which means that new software-defined fog nodes can be dynamically created to solve a particular scenario\cite{openfogconsortium2017}.
+\item Openness - Openness as a basic principle enables fog nodes to be present anywhere in a network and span across networks thereby enabling pooling by discovery, which means that new software-defined fog nodes can be dynamically created to solve a particular scenario \cite{openfogconsortium2017}.
 
-\item Autonomy - This pillar enables fog nodes to continue to deliver the intended functionality in the face of the external service failures. In this architecture, autonomy is supported throughout the hierarchy and therefore the decision making will be made at all levels of a deployment’s hierarchy including near the device or higher order layers. It does not rely upon a centralized system for operation (e.g. a backend cloud)\cite{openfogconsortium2017}.
+\item Autonomy - This pillar enables fog nodes to continue to deliver their intended functionality in the face of external service failures. In this architecture, autonomy is supported throughout the hierarchy and therefore decision making will be made at all levels of a deployment’s hierarchy including near the device or higher order layers. It does not rely upon a centralized system for operation (e.g. a backend cloud) \cite{openfogconsortium2017}.
 
-\item Programmability - This pillar enables highly adaptive deployments including support for programming at the software and hardware layers. This means that we can completely automate re-tasking of a fog node or a cluster of fog nodes\cite{openfogconsortium2017}. The fog nodes' inherent programmability interfaces is made use of in such a case.
+\item Programmability - This pillar enables highly adaptive deployments including support for programming at the software and hardware layers. This means re-tasking of a fog node or a cluster of fog nodes can be completely automated \cite{openfogconsortium2017}. The fog nodes' inherent programmability interfaces are made use of in such a case.
 
-\item Reliability, Availability and Serviceability (RAS) - Hardware, software, and operations are the three main areas of the RAS pillar and as such takes on great importance in the OpenFog RA\cite{openfogconsortium2017}. 
-A reliable deployment will therefore continue to perform as expected under all conditions. Availability ensures continuous management and orchestration, which is usually measured in uptime while servicing a fog deployment ensures correct operation.
+\item Reliability, Availability and Serviceability (RAS) - Hardware, software, and operations are the three main areas of the RAS pillar and as such take on great importance in the OpenFog RA \cite{openfogconsortium2017}.
+
+A reliable deployment will therefore continue to perform as expected under all conditions. Availability ensures continuous management and orchestration, which is usually measured in uptime, while servicing a fog deployment ensures correct operation.
 
 \item Agility - This pillar addresses the business operational decisions for an OpenFog RA deployment. It also deals with the highly dynamic nature of fog deployments and the need to respond quickly to change\cite{openfogconsortium2017}.
 
-\item Hierarchy - This pillar ensures that the OpenFog RA is complementary to traditional cloud architectures. Depending on the scale and nature of the scenario being addressed, the hierarchy may be a network of smart and connected partitioned systems arranged in physical or logical layers, or it may collapse into a single physical system (scalability pillar)\cite{openfogconsortium2017}.
+\item Hierarchy - This pillar ensures that the OpenFog RA is complementary to traditional cloud architectures. Depending on the scale and nature of the scenario being addressed, the hierarchy may be a network of smart and connected partitioned systems arranged in physical or logical layers, or it may collapse into a single physical system (Scalability pillar) \cite{openfogconsortium2017}.
 \end{itemize}  
 
-\subsubsection{OpenFog RA description - Views and Perspectives}
+\subsubsection{OpenFog RA Description - Views and Perspectives}
 
-The OpenFog RA description is a composite representation of various stakeholder concerns which are referred to as views\cite{openfogconsortium2017}. The stakeholders and their associated views are identified because they are required to facilitate any successful fog based deployment\cite{openfogconsortium2017}. 
+The OpenFog RA Description is a composite representation of various stakeholder concerns which are referred to as ``views'' \cite{openfogconsortium2017}. The stakeholders and their associated views are identified because they are required to facilitate any successful fog based deployment \cite{openfogconsortium2017}. 
 
-The functional viewpoint of the architecture describes how the OpenFog architectural elements and views are applied to satisfy the stakeholders requirements/concerns on a given scenario. It is however important to note that these change over time. 
+The functional viewpoint of the architecture describes how the OpenFog architectural elements and views are applied to satisfy the stakeholders' requirements/concerns on a given scenario. It is, however, important to note that these change over time. 
 
-The deployment viewpoint addresses how the fog software and fog systems are deployed in order to satisfy a given stakeholder scenario. The deployments generally happen in a hierarchical based model where the number of tiers will be dictated by the scenario requirements\cite{openfogconsortium2017}.
-The scenarios might be the amount and type of work required by each tier or the number of sensors required for the deployment and so on.
+The deployment viewpoint addresses how the fog software and fog systems are deployed in order to satisfy a given stakeholder scenario. The deployments generally happen in a hierarchy-based model where the number of tiers are dictated by the scenario requirements \cite{openfogconsortium2017}. The scenarios might be the amount and type of work required by each tier or the number of sensors required for the deployment and so on.
 
 The abstract architecture comprising the views and perspectives is shown in figure \ref{fig:openfog_ra}.
 
@@ -200,34 +199,33 @@ The abstract architecture comprising the views and perspectives is shown in figu
 	\label{fig:openfog_ra}
 \end{figure} 
 
-The grey vertical bars on the sides of the views are referred to as perspectives \cite{openfogconsortium2017}. They can be thought of as concerns that are to be employed in the fog implementation. The reference architecture features the following perspectives:
+The grey vertical bars on the sides of the views are referred to as ``perspectives'' \cite{openfogconsortium2017}. They can be thought of as concerns that are to be employed in the fog implementation. The reference architecture features the following perspectives:
 
 \begin{itemize}
-\item Performance - This is an important concern, also referred to as a cross cutting concern, as it impacts system and deployment scenario. Eg Low Latency.
+\item Performance - This is an important concern, also referred to as a ``cross-cutting concern'', as it impacts system and deployment scenarios, e.g., low latency.
 
-\item Security - Data integrity is a special aspect of security for devices that currently lack adequate security. This includes intentional and unintentional corruption\cite{openfogconsortium2017}.
+\item Security - Data integrity is a special aspect of security for devices that currently lack adequate security. This includes intentional and unintentional corruption \cite{openfogconsortium2017}.
 
-\item Manageability - Managing all aspects of fog deployments, which include RAS, DevOps etc\cite{openfogconsortium2017}. 
+\item Manageability - Managing all aspects of fog deployments, which include RAS, DevOps, etc. \cite{openfogconsortium2017}. 
 
-\item Data Analysis and Control -  The autonomy of fog nodes requires localized data analytics coupled with control\cite{openfogconsortium2017}.
+\item Data Analysis and Control -  The autonomy of fog nodes requires localized data analytics coupled with control \cite{openfogconsortium2017}.
 
-\item IT Business and Cross Fog Applications - Ability to migrate and operate properly at any level of a fog deployment’s hierarchy\cite{openfogconsortium2017}.  
+\item IT Business and Cross-Fog Applications - Ability to migrate and operate properly at any level of a fog deployment’s hierarchy \cite{openfogconsortium2017}.  
 \end{itemize}
 
-The views(representation of stakeholder concerns)\cite{openfogconsortium2017} described in the OpenFog RA description include 
+The views (representations of stakeholder concerns) \cite{openfogconsortium2017} described in the OpenFog RA description include:
+
 \begin{itemize}
-\item Software View - Represented in the top 3 layers shown in figure above and Include Application Services, Application Support, and Node Management (IB) and Software Backplane\cite{openfogconsortium2017}.
+\item Software View - Represented in the top 3 layers shown in Figure \ref{fig:openfog_ra} and includes application services, application support, node management (IB) and software backplane \cite{openfogconsortium2017}.
 
-\item System View - Represented in the middle Layers shown in fig above and include Hardware Virtualization down through the Hardware Platform Infrastructure\cite{openfogconsortium2017}.
+\item System View - Represented in the middle layers shown in Figure \ref{fig:openfog_ra} and includes hardware virtualization down through the hardware platform infrastructure \cite{openfogconsortium2017}.
 
-\item Node View - Represented in the bottom layers shown in fig above and includes the Protocol Abstraction Layer and Sensors, Actuators, and Control\cite{openfogconsortium2017}.
+\item Node View - Represented in the bottom layers shown in Figure \ref{fig:openfog_ra} and includes the Protocol Abstraction Layer and sensors, actuators, and control \cite{openfogconsortium2017}.
 \end{itemize} 
 
 \subsubsection{OpenFog Reference Architecture Deployment Models} 
 
-In most fog deployment models, there are usually tiers (N-tiers) of nodes. 
-Depending on the particular use-case/scenario, multiple fog and cloud elements may collapse into a single physical deployment. 
-Each fog element may also represent a mesh of peer fog nodes in use cases like connected cars, electrical vehicle charging, and closed loop traffic systems\cite{openfogconsortium2017}.
+In most fog deployment models, there are usually tiers (N-tiers) of nodes. Depending on the particular use case, multiple fog and cloud elements may collapse into a single physical deployment. Each fog element may also represent a mesh of peer fog nodes in use cases like connected cars, electrical vehicle charging, and closed loop traffic systems \cite{openfogconsortium2017}.
 
 \begin{figure}[H]
 	\centering
@@ -239,18 +237,23 @@ Each fog element may also represent a mesh of peer fog nodes in use cases like c
 Figure \ref{fig:depl_models} provides an overview of different commonly-used deployment options. These options are:
 
 \begin{itemize}
-	\item Fog Model Independent of the Cloud - This model is mainly used in cases where cloud cant be used. The reasons might be response time concern, compliance to regulations, security and privacy, and unavailability of a centralised cloud. 
-	Use cases include armed forces combat systems, drone operations, some healthcare systems, hospitals, and ATM banking systems\cite{openfogconsortium2017}.
+	\item Fog Model Independent of the Cloud - This model is mainly used in cases where cloud services can't be used. The reasons might be response-time concern, compliance to regulations, security and privacy, or unavailability of a centralised cloud.
+	
+	Use cases include armed forces combat systems, drone operations, some healthcare systems, hospitals, and ATM banking systems \cite{openfogconsortium2017}.
 
-	\item Model using Cloud for Business Support - This model uses cloud for Business Support (information processing related to decision making).  However the actual operation-centric information processing is done by fog deployments located close to the infrastructure/process being managed.
-	Use cases include commercial building management, commercial solar panel monitoring, and retail\cite{openfogconsortium2017}.
+	\item Model using Cloud for Business Support - This model uses the cloud for business support (information processing related to decision making).  However, the actual operation-centric information processing is done by fog deployments located close to the infrastructure/process being managed.
 
-	\item Model using Cloud for Business and Operational Support - This model uses local fog infrastructure for time-sensitive computation, while the cloud is used for the balance of operational and business-related information processing.    
-	Use cases include commercial UPS device monitoring, mobile network acceleration, and content delivery networks (CDNs) for Internet acceleration\cite{openfogconsortium2017}.
+	Use cases include commercial building management, commercial solar panel monitoring, and retail \cite{openfogconsortium2017}.
 
-	\item Model using Minimal/no Fog infrastructure - This model leverages the cloud for the entire process due to the environmental constraints which would make the deployment of fog uneconomical or infeasible. 
-	However fog nodes that are at the lowest level (device layer) may get some monitoring and control functions for safety related control.
-	Use cases include agriculture, connected cars, and remote weather stations\cite{openfogconsortium2017}
+	\item Model using Cloud for Business and Operational Support - This model uses local fog infrastructure for time-sensitive computation, while the cloud is used for the balance of operational and business-related information processing.
+
+	Use cases include commercial UPS device monitoring, mobile network acceleration, and content delivery networks (CDNs) for Internet acceleration \cite{openfogconsortium2017}.
+
+	\item Model using Minimal/No Fog Infrastructure - This model leverages the cloud for the entire process due to the environmental constraints which would make the deployment of fog uneconomical or infeasible.
+
+	However, fog nodes that are at the lowest level (device layer) may be designed with monitoring and control functions for safety related control.
+
+	Use cases include agriculture, connected cars, and remote weather stations \cite{openfogconsortium2017}
 \end{itemize}
 
 
@@ -329,25 +332,25 @@ To protect privacy, Yi et al. \cite{yi2015survey} suggest to run ``privacy-prese
 Fog computing was conceptualized as an extension of the cloud to address services and applications for which the cloud paradigm is not entirely suitable \cite{bessis2014big}. As a relatively new model, the potential applications and likely infrastructure and design challenges for the fog are still being explored. However, there is a wide range of possible uses of a paradigm that enables real-time, low-latency processing, reduces bandwidth costs, with the benefits of improved security and governance. This section will detail some possible applications of fog computing in various fields.
 
 \subsection{Real-time Health Monitoring}
-Wireless Body Area Networks (WBAN) is an important technology in healthcare Internet-of-Things (IoT) applications that allows for the unobtrusive monitoring and recording of various vital signs of a patient in real-time. In current cloud-enabled health-monitoring systems, these WBAN devices are in a state of constant connection with a cloud server, sending patient health data to the cloud around the clock \cite{gia2015fog}. However, all of this data being transmitted and received by so many devices on a network can lead to high network bandwidth usage, and consequently, high latency and slow response times from the health monitoring system. In addition, proper analysis can only be performed after relevant data from all WBAN devices in a patient are received by the system. With each individual WBAN transmitting its raw data to the cloud via Wi-Fi, bottlenecks in the analysis might be caused by any single device that is slow or fails to upload data \cite{gia2015fog}. A small dip in the vitals of a patient on life support can quickly turn into a full-on drop within minutes, thus a model that can effectively and reliably monitor this health data in real-time is absolutely critical.
+Wireless Body Area Networks (WBAN) is an important technology in healthcare IoT applications that allows for the unobtrusive monitoring and recording of various vital signs of a patient in real-time. In current cloud-enabled health-monitoring systems, these WBAN devices are in a state of constant connection with a cloud server, sending patient health data to the cloud around the clock \cite{gia2015fog}. However, all of this data being transmitted and received by so many devices on a network can lead to high network bandwidth usage, and consequently, high latency and slow response times from the health monitoring system. In addition, proper analysis can only be performed after relevant data from all WBAN devices in a patient is received by the system. With each individual WBAN transmitting its raw data to the cloud via Wi-Fi, bottlenecks in the analysis might be caused by any single device that is slow or fails to upload data \cite{gia2015fog}. A small dip in the vitals of a patient on life support can quickly turn into a full-on drop within minutes, thus a model that can effectively and reliably monitor this health data in real-time is absolutely critical.
 
-Gia et al., in a case study exploring a practical application of fog computing for WBAN health data feature extraction,  suggest the ``provision of an extra layer in between a conventional gateway and a remote cloud server''\cite{gia2015fog}. This added layer, described as the ``fog layer'' in the study, is essentially a fog gateway that pre-processes health data from the various sensor nodes, reducing the volume of data transmitted to the cloud and expediting the response time of vital applications as a result. As detailed in the study, instead of hundreds of WBAN devices each sending patient health data directly to a cloud server, the WBAN data is sent to a fog gateway. The fog gateway aggregates all of the WBAN data and groups together data that is relevant for each user. The gateway pre-processes this data, storing recent results in a distributed fog database where it may be accessed by the patient or their doctor as permitted by the hospital. The pre-processed data is then sent to the cloud server for storage and to be related to data from other patients.
+Gia et al., in a case study exploring a practical application of fog computing for WBAN health data feature extraction,  suggest the ``provision of an extra layer in between a conventional gateway and a remote cloud server''\cite{gia2015fog}. This added layer, described as the ``fog layer'' in the study, is essentially a fog gateway that pre-processes health data from the various sensor nodes, reducing the volume of data transmitted to the cloud and expediting the response time of vital applications as a result. As detailed in the study, instead of hundreds of WBAN devices each sending patient health data directly to a cloud server, the WBAN data is sent to a fog gateway. The fog gateway aggregates all of the WBAN data and groups together data that is relevant for each user. The gateway then pre-processes this data, storing recent results in a distributed fog database where it may be accessed by the patient or their doctor as permitted by the hospital. The pre-processed data is then sent to the cloud server for storage and to be related to data from other patients.
 
 The fog computing model proposed by Gia et al. showcases how fog computing extends the cloud to allow for vital processes to be executed much closer to the edge. Since the raw WBAN data is collected and pre-processed at the fog layer, the number of devices communicating with the cloud is cut down from several hundred WBAN devices to a single fog gateway. As a result, the volume of data transmitted by the system is drastically decreased, affecting overall latency and response time. The model proposed in the study successfully reduced the size of data being sent to the cloud by at least 93\% while reducing latency more than 48.5\% in busy Wi-Fi networks \cite{gia2015fog}. 
 
 \subsection{Security and Surveillance}
-Surveillance and security camers generate massive volumes of data; a single camera may create over one terabyte of high-definition video data per day \cite{openfogconsortium2017visualsecurity}. An effective security system would require several security cameras in a number of locations each sending large amounts of video data to a cloud server at a remote location. This puts a great strain on the network, effectively forcing the system to dedicate a significant portion of its bandwidth solely for video transmission, resulting in high latency and delays in busy networks. Security decisions must be made rapidly as situations may arise where a delay in response can result in a risk to public safety. If a person carrying a suspicious package is discovered on a camera, the system must be able to reliably track the package's movements. Delays in the system can result in out-of-date information being relayed to the authorities, making a timely response impossible.
+Surveillance and security camers generate massive volumes of data; a single camera may create over one terabyte of high-definition video data per day \cite{openfogconsortium2017visualsecurity}. An effective security system would require several security cameras in a number of locations for maximum coverage. In a cloud-based deployment, each of these cameras would be sending large volumes of video data to a cloud server at a remote location. This puts a great strain on the network, effectively forcing the system to dedicate a significant portion of its bandwidth solely for video transmission, resulting in significant latency. Security decisions must be made rapidly as situations may arise where a delay in response can result in a risk to public safety. If a person carrying a suspicious package is discovered on a camera, the system must be able to reliably track the package's movements. Delays in the system can result in out-of-date information being relayed to emergency services, making a timely response impossible.
 
-The Open Fog Consortium claims fog computing may serve as a solution for this scenario \cite{openfogconsortium2017visualsecurity}. The paper recommends the deployment of fog nodes that can be designed to intelligently partition video processing between the various edge devices and the cloud. In contrast to traditional cloud models, this design allows video analytics to be performed at fog nodes that are physically close to the site, reducing latency and allowing for quicker response times in emergency situations. Relevant data can then be sent to the cloud to allow for historical analysis over long periods of time and enable data sharing between multiple locations \cite{openfogconsortium2017visualsecurity}, for example, the sharing of data between airports or multiple locations of a hotel chain.
+The OpenFog Consortium released a paper proposing a fog computing model that may serve as a solution for this scenario \cite{openfogconsortium2017visualsecurity}. The paper recommends the deployment of fog nodes that can be designed to intelligently partition video processing between the various edge devices and the cloud. In contrast to traditional cloud models, this design allows video analytics to be performed at fog nodes that are physically close to the site, reducing latency and allowing for quicker response times in emergency situations. Relevant data can then be sent to the cloud to allow for historical analysis over long periods of time and enable data sharing between multiple locations \cite{openfogconsortium2017visualsecurity}, for example, the sharing of data between airports or multiple locations of a hotel chain.
 
-The addition of an extra layer between the edge and the cloud allows for added security protocols to be implemented at the fog gateways where the raw camera data is processed before being sent to the cloud. This raw camera data can be analyzed at the fog gateways, where rules may be established to determine which data may be sent to the cloud and which can be stored locally for security analysis purposes \cite{openfogconsortium2017visualsecurity}.
+The addition of an extra layer between the edge and the cloud allows for added security protocols to be implemented at the fog gateways where the raw camera data is processed before being sent to the cloud. This raw camera data is analyzed at the fog gateways, where rules may be established to determine which data should be sent to the cloud and which should be stored locally for security analysis purposes \cite{openfogconsortium2017visualsecurity}.
 
 \subsection{Smart Cities - Traffic Congestion Management}
 Traffic management is an ever-growing challenge faced by major cities; lost worker productivity, slower response times from emergency services, and high carbon emissions can all be attributed to traffic congestion. Various factors that contribute to traffic congestion simply can not be predicted, such as accidents. Even the predictablity of how certain weather affects road conditions can vary wildly between different areas. Furthermore, traffic management spans multiple jurisdictions; the development and implementation of potential solutions will probably take place in isolation within each department, hindering information sharing and integration initiatives \cite{openfogconsortium2017trafficmanagement}.
 
-According to the Open Fog Consortium, proposed cloud solutions in Smart Cities, while suggesting a single cloud that connects these many departments, in reality involve multiple clouds for traffic management \cite{openfogconsortium2017trafficmanagement}. The paper notes that these departments are each responsible for the implementation of their own solutions to the traffic congestion problem for areas under their jurisdiction and, as a result, may potentially work with any number of clouds. This segmented approach, where each piece of the solution is developed and deployed in isolation, can result in the accumulation of redundant data and is an obstacle to data sharing between departments which in turn creates delays in response.
+According to the OpenFog Consortium, proposed cloud solutions in Smart Cities, while suggesting a single cloud that connects these many departments, in reality involve multiple clouds for traffic management \cite{openfogconsortium2017trafficmanagement}. The paper notes that these departments are each responsible for the implementation of their own solutions to the traffic congestion problem for areas under their jurisdiction and, as a result, may potentially work with any number of clouds. This segmented approach, where each piece of the solution is developed and deployed in isolation, can result in the accumulation of redundant data and is an obstacle to data sharing between departments which in turn creates delays in response.
 
-In a paper published by the Open Fog Consortium, a fog-enabled model is proposed to solve these problems \cite{openfogconsortium2017trafficmanagement}. CCTV, camera, electronic signage, and traffic light data will be captured by roadside or local fog nodes to be analyzed and used locally. These local fog nodes process this local data and transmit emergency messages (such as flooding or roadblock notices) at the local level. This local information would then be sent to a regional fog node where it would be related to data from other local fogs to piece together a picture of traffic conditions at a larger scale. These fog nodes at the regional and city level may be used to share information across individual networks, allowing for all relevant departments to share a single, synchronized picture of road-side conditions as they change. In the future, as manufacturers install fog nodes in their vehicles, each vehicle could potentially function as an edge device that connects with other devices on the road. All of this data in aggregate can be used by municipalities to provide a far more detailed view of traffic conditions, allowing for greater control of road conditions and much quicker response times. In addition, all of this node information, from local fog data up to city fog data, can be sent to any number of clouds, effectively allowing for synchronization of information between multiple jurisdictions that may employ different cloud services without disrupting their existing cloud-enabled implementations.
+In a paper published by the OpenFog Consortium, a fog-enabled model is proposed to solve these problems \cite{openfogconsortium2017trafficmanagement}. CCTV, camera, electronic signage, and traffic light data will be captured by roadside or local fog nodes to be analyzed and used locally. These local fog nodes process this local data and transmit emergency messages (such as flooding or roadblock notices) at the local level. This local information would then be sent to a regional fog node where it would be related to data from other local fogs to piece together a picture of traffic conditions at a larger scale. These fog nodes at the regional and city level may be used to share information across individual networks, allowing for all relevant departments to share a single, synchronized picture of road-side conditions as they change. In the future, as manufacturers install fog nodes in their vehicles, each vehicle could potentially function as an edge device that connects with other devices on the road. All of this data in aggregate can be used by municipalities to provide a far more detailed view of traffic conditions, allowing for greater control of road conditions and much quicker response times. In addition, all of this node information, from local fog data up to city fog data, can be sent to any number of clouds, effectively allowing for synchronization of information between multiple jurisdictions that may employ different cloud services without disrupting their existing cloud-enabled implementations.
 
 \pagebreak
 
