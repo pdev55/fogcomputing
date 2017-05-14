@@ -45,106 +45,109 @@ As fog computing is still a fairly new field, though, many details concerning co
 \pagebreak
 \section{Architectures and Models}
 
-In this section, we are going to discuss different basic architectures that are commonly used in fog environments. Fog is still a developing field, and very broad, with many different use cases. To give good overview, we will present two specific architectures namely Software-Defined fog network architecture and Gateway based fog computing architecture.
+In this section, we are going to discuss different basic architectures that are commonly used in fog environments. Fog is still a developing field, and very broad, with many different use cases. To give good overview, we will present two specific architectures namely software-defined fog network architecture and gateway-based fog computing architecture.
 We will then look at the efforts of the OpenFog consortium to provide a standardised framework for building fog applications.
 
-\subsection{Gateway based Fog Computing Architecture}
+\subsection{Gateway-based fog computing architecture}
 
-Internet of Things(IoT) is a huge global information system composed of many objects that can be identified, sensed and processed based on standardized and interoperable communication protocols\cite{lee2016gateway}.
-In general, most of the IoT services and applications, some of which are namely connected vehicle, smart Grid, smart cities, and wireless sensors and actuators networks(WSANs)require mobility support, location awareness and low latency\cite{lee2016gateway}. 
+Internet of Things (``IoT'') is a huge global information system composed of many objects that can be identified, sensed and processed based on standardized and interoperable communication protocols\cite{lee2016gateway}.
+In general, most of the IoT services and applications, some of which are namely connected vehicle, smart grid, smart cities, and wireless sensors and actuators networks (``WSANs'') require mobility support, location awareness and low latency \cite{lee2016gateway}. 
 These features are not readily realisable using the traditional cloud computing paradigm and that is where a computing model such as fog computing model that extends a traditional cloud computing model fits in.
 
-One of the key elements of the Internet of Things (IoT) is Wireless Sensor Networks where multiple heterogeneous wireless communications coexist: such as WiFi, ZigBee, Cellular and Bluetooth. 
-Wireless Sensor Networks are a collection of nodes that are used to sense and interact with the environment in which they are set up. Actuators however add a new dimension to sensor networks by bringing the ability to control the system. Some applications which require physical actions such as open, close, move and focus can use actuators to achieve them. Furthermore WSANs are still domain specific and usually deployed to support a specific application\cite{lee2016gateway}.   
+One of the key elements of the IoT are wireless sensor networks where multiple heterogeneous wireless communications coexist: such as WiFi, ZigBee, cellular and Bluetooth. 
+Wireless sensor networks are a collection of nodes that are used to sense and interact with the environment in which they are set up. Actuators however add a new dimension to sensor networks by bringing the ability to control the system. Some applications which require physical actions such as open, close, move and focus can use actuators to achieve them. Furthermore WSANs are still domain specific and usually deployed to support a specific application\cite{lee2016gateway}.   
 
-Wangbong lee et.al\cite{lee2016gateway} proposed a Gateway based fog computing architecture for WSANs. The fog computing setup consisted of a set of gateways and a microserver\cite{lee2016gateway}. 
-The gateway and micro server were connected by ethernet interface and the interfaces between gateway nodes were a combination of wired and wireless interfaces such as 3G, LTE, and Ethernet\cite{lee2016gateway}.
+Wangbong lee et al. \cite{lee2016gateway} propose a gateway-based fog computing architecture for WSANs. The fog computing setup consists of a set of gateways and a microserver \cite{lee2016gateway}.
+The gateway and micro server are connected by an Ethernet interface and the interfaces between gateway nodes are a combination of wired and wireless interfaces such as 3G, LTE, and Ethernet\cite{lee2016gateway}.
 
-The figure below\cite{lee2016gateway} looks at the architecture both from a physical and logical view.
+Figure \ref{fig:gateway} shows the architecture both from a physical and logical view.
 
 \begin{figure}
 \centering
 \includegraphics[scale=0.5]{gateway.png}
-\caption{Gateway based Fog Computing Architecture for WSANs}
+\caption{Gateway-based fog computing architecture for WSANs \cite{lee2016gateway}}
+\label{fig:gateway}
 \end{figure} 
 
-The nodes could be seen as classified into slave Nodes and master nodes. Slave nodes took care of functions such as flow management,virtual gateway and resource management whereas the master nodes had control over the functionalities of the slaves\cite{lee2016gateway}. The gateways had their own role where they functioned as a master/slave node. As indicated in the fig above, the slave nodes and master nodes existed in their respective layers when looked at from a logical point of view. 
+The nodes can be seen as classified into slave nodes and master nodes. Slave nodes took care of functions such as flow management, virtual gateway and resource management whereas the master nodes have control over the functionalities of the slaves \cite{lee2016gateway}. The gateways have their own role where they function as a master/slave node. As shown in figure \ref{fig:gateway}, the slave nodes and master nodes exist in their respective layers when looked at from a logical point of view. 
 
-Flow management for this setup was based on software defined network such as OpenFlow, and virtual function management needed a light version of NFV(Near Field View) architecture such as ClickOS\cite{martins2014clickos} which helped in network function virtualization.
-The architecture provided helped virtualize WSAN and the model was event driven. It provided virtual event from networked objects and shared them to various applications.
+Flow management for this setup is based on software defined network such as OpenFlow, and virtual function management needed a light version of NFV (Near Field View) architecture such as ClickOS \cite{martins2014clickos} which helps in network function virtualisation.
+The architecture provided helps virtualize WSAN and the model is event driven. It provides virtual event from networked objects and shared them to various applications.
 
 In order to understand why a fog computing setup is preferred, we need to look at the amount of data interchange that goes on in WSANs.
 Latency of the application also plays a major role in applications involving WSANs (low latency is key) and it is desirable to make the applications function in real time.
-This is not possible to realise in a cloud model where the latency is high. This could be attributed to the fact that the control topology of fog computing is distributed whereas cloud is centralized\cite{lee2016gateway}.
-Furthermore, most important fog applications involve real-time interactions rather than batch processing\cite{lee2016gateway}. 
-An example would be the large-scale sensors networks to monitor the environment. Since such a setup would inherently be distributed and require distributed computing and storage resources, fog computing with its large number of nodes as evidenced in sensor networks in general is preferred.\cite{lee2016gateway}. 
+This is not possible to realise in a cloud model where the latency is high. This could be attributed to the fact that the control topology of fog computing is distributed whereas cloud is centralized \cite{lee2016gateway}.
+Furthermore, most important fog applications involve real-time interactions rather than batch processing \cite{lee2016gateway}. 
+An example would be the large-scale sensors networks to monitor the environment. Since such a setup would inherently be distributed and require distributed computing and storage resources, fog computing with its large number of nodes as evidenced in sensor networks in general is preferred \cite{lee2016gateway}. 
 
 
-\subsection{Software-Defined Fog Network Architecture for IoT}
+\subsection{Software-defined fog network architecture for IoT}
 
-Before we discuss the Software Defined Fog Network for IoT, let us look at how a traditional IoT architecture looks and how it is realised.
-Figure below\cite{tomovic2017software} illustrates the architecture from a high level perspective.
+Before we discuss the software-defined fog network for IoT, let us look at how a traditional IoT architecture looks and how it is realised.
+Figure \ref{fig:iot} shows such an architecture from a a high-level perspective.
 
 \begin{figure}
 \centering
 \includegraphics[scale=0.5]{iot.png}
-\caption{Traditional IoT architecture}
+\caption{Traditional IoT architecture \cite{tomovic2017software}}
+\label{fig:iot}
 \end{figure} 
 
-Four main components are involved and they are\cite{tomovic2017software}: 
+Four main components are involved and they are \cite{tomovic2017software}: 
 \begin{itemize}
 \item Sensing devices or as we call them 'things'
 \item Local communication network
 \item The Internet Cloud
 \item The Back-end IoT applications
-\end{itemize}. 
-The sensing devices collect/sense data from the physical environment which is then used in applications such as Smart Transportation to provide a desirable service to end customers. 
-Since IoT devices are in general characterized by very limited memory and computational resources, IoT application usually takes advantage of services offered by the cloud for data storage and processing. Furthermore, in order to reach the cloud, sensing devices rely on different communication technologies\cite{tomovic2017software}. 
-Many emerging IoT applications require real-time interaction and mobility support (e.g. smart traffic lights and target tracking systems), which makes network latency an important limiting factor\cite{tomovic2017software}. Latency introduced in the network is not only a consequence of long distance between IoT devices and the cloud but its also caused by queuing delay, which is non-negligible on the congested links.\cite{tomovic2017software}. 
+\end{itemize}
 
-In order to address these challenges, Slavica Tomovic et al.\cite{tomovic2017software} proposed a model of IoT architecture which took advantage of both the Software Defined Network(SDN) and Fog computing paradigms.
- 
-Novelty introduced with SDN as opposed to a traditional communications network was a clear separation of the control plane(signalling traffic, performing route calculation, system configuration and management) and the data plane (transport of packets to destination)\cite{tomovic2017software}. 
-Here, the SDN control plane is placed on a logically centralized controller, which maintains a global view of the network, interacts with simple forwarding devices and provides a programming interface for network management applications\cite{tomovic2017software}. 
-In this way, SDN allowed network managers to configure and optimize network resources dynamically via automated programs\cite{tomovic2017software}.
- 
-The architecture proposed\cite{tomovic2017software}was intended to realise the IoT scenario where features of both technologies(SDN and Fog) were combined together as one integrated system.
-The setup(See Figure below)\cite{tomovic2017software} involved end devices with multiple wireless communication solutions, SDN controllers, heterogeneous fog infrastructure (virtualized servers, routers, access points, etc.) and cloud in the network core\cite{tomovic2017software}.
+The sensing devices collect/sense data from the physical environment which is then used in applications such as smart transportation to provide a desirable service to end customers. 
+Since IoT devices are in general characterized by very limited memory and computational resources, IoT application usually take advantage of services offered by the cloud for data storage and processing. Furthermore, in order to reach the cloud, sensing devices rely on different communication technologies \cite{tomovic2017software}. 
+Many emerging IoT applications require real-time interaction and mobility support (e.g. smart traffic lights and target tracking systems), which makes network latency an important limiting factor \cite{tomovic2017software}. Latency introduced in the network is not only a consequence of long distance between IoT devices and the cloud but its also caused by queuing delay, which is non-negligible on the congested links \cite{tomovic2017software}. 
 
-\begin{figure}
-\centering
-\includegraphics[scale=0.5]{sdn.png}
-\caption{SDN architecture for IoT based on Fog Computing}
+In order to address these challenges, Slavica Tomovic et al. \cite{tomovic2017software} propose a model of IoT architecture which takes advantage of both the software-defined networking (``SDN'') and fog computing paradigms.
+ 
+Novelty introduced with SDN as opposed to a traditional communications network is a clear separation of the control plane (signalling traffic, performing route calculation, system configuration and management) and the data plane (transport of packets to destination) \cite{tomovic2017software}. 
+Here, the SDN control plane is placed on a logically centralized controller, which maintains a global view of the network, interacts with simple forwarding devices and provides a programming interface for network management applications \cite{tomovic2017software}. 
+In this way, SDN allows network managers to configure and optimize network resources dynamically via automated programs \cite{tomovic2017software}.
+ 
+The proposed architecture is intended to realise the IoT scenario where features of both technologies (SDN and Fog) are combined together in one integrated system.
+The setup, shown in figure \ref{fig:sdn}, involves end devices with multiple wireless communication solutions, SDN controllers, heterogeneous fog infrastructure (virtualised servers, routers, access points, etc.) and cloud in the network core \cite{tomovic2017software}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.5]{sdn.png}
+	\caption{SDN architecture for IoT based on Fog Computing \cite{tomovic2017software}}
+	\label{fig:sdn}
 \end{figure} 
 
-The fog nodes exposed a set of APIs (Application Programming Interfaces) for application deployment and development, resource management and control. Since IoT applications may in general be geo-spatially distributed, a hierarchical deployment of fog network was assumed. 
-Mobile Fog programming model\cite{hong2013mobile} was used in the development of IoT applications using hierarchically deployed and heterogeneous fog resources.
-The final application consisted of multiple processes that performed different tasks based on the device capability and position in the network hierarchy.
+The fog nodes expose a set of APIs for application deployment and development, resource management and control. Since IoT applications may in general be geo-spatially distributed, a hierarchical deployment of fog network was assumed. 
+Mobile fog programming model \cite{hong2013mobile} is used in the development of IoT applications using hierarchically deployed and heterogeneous fog resources.
+The final application consists of multiple processes that perform different tasks based on the device capability and position in the network hierarchy.
 
-For example, tasks of large-scale video surveillance application were organized in three levels: motion detection at IP camera, face recognition at edge fog nodes and aggregation of identities at cloud server\cite{tomovic2017software}.
+For example, tasks of large-scale video surveillance application are organized in three levels: motion detection at IP camera, face recognition at edge fog nodes and aggregation of identities at cloud server \cite{tomovic2017software}.
 
-As discussed earlier, since IoT applications deal with dynamic workload due to periodic or event-driven data delivery models, they should be transparently scaled at the runtime. In other words, there should be no issues with contention of resources upon scaling. 
-In order to achieve that, Slavica Tomovic et al.\cite{tomovic2017software} proposed logical centralization of orchestration functionality at the SDN controller.
-To achieve that, the design of SDN controller was modified compared to traditional one used in DC networks\cite{tomovic2017software}.
-So, the basic function of the traditional SDN controller was modified to perform
+As discussed earlier, since IoT applications deal with dynamic workload due to periodic or event-driven data delivery models, they should be transparently scaled at runtime. In other words, there should be no issues with contention of resources upon scaling. 
+In order to achieve that, Slavica Tomovic et al. \cite{tomovic2017software} propose logical centralization of orchestration functionality at the SDN controller.
+To achieve that, they modify the design of SDN controller to perform the following functions:
+
 \begin{itemize}
-\item Fog Orchestration 
-\item Speading routing logic into SDN-enabled network elements
-\item Optimally selecting access points for IoT devices.
-\end{itemize}  
-In order to perform the above tasks, the controller collected and maintained information about fog nodes such as available RAM, storage, running operating systems, software applications, state and interconnectivity of the network elements and characteristics of the connected smart devices.
-The fog orchestration was then performed according to the business policies defined by the application service providers and the policies were stored in the SDN controllers and the fog nodes hosting the provider's application\cite{tomovic2017software}.
+	\item Fog Orchestration 
+	\item Spread routing logic into SDN-enabled network elements
+	\item Optimally select access points for IoT devices
+\end{itemize}
 
-SDN controller therefore provided dynamic, policy-based management of fog services. It could thus track the moving devices and predict their potential destinations in the near future\cite{tomovic2017software}. 
-This enabled seamless handover to a new fog node at the network edge which would otherwise not be possible using a traditional cloud because of its centralised topology.
+In order to perform the above tasks, the controller collected and maintains information about fog nodes such as available memory, storage, running operating systems, software applications, state and interconnectivity of the network elements and characteristics of the connected smart devices.
+The fog orchestration is then performed according to the business policies defined by the application service providers and the policies were stored in the SDN controllers and the fog nodes hosting the provider's application \cite{tomovic2017software}.
 
-Besides fog orchestration, SDN controller also performed traffic control and connectivity management for IoT devices.
-Another main component that was introduced in the architecture was a software OpenFlow switch. 
-The application traffic always went through this component before being sent, which allowed the control plane elements (i.e. Fog nodes at the edge and SDN controllers) to identify the access of traffic flows into the network\cite{tomovic2017software}. 
+SDN controller therefore provides dynamic, policy-based management of fog services. It can track mobile devices and predict their potential destinations in the near future \cite{tomovic2017software}. This enables seamless handover to a new fog node at the network edge which would otherwise not be possible using a traditional cloud because of its centralised topology.
 
-Important use cases of such a system would be Smart Transportation, Video Surveillance etc where low latency and real time streaming takes preference. Besides fog computing, the presented system model can also exploit benefits of SDN to dynamically assign higher priority to some traffic flows in emergency situations, and hence guarantee low-latency. 
+Besides fog orchestration, SDN controller also performs traffic control and connectivity management for IoT devices.
+Another main component that is introduced in the architecture us a software OpenFlow switch. 
+The application traffic always passes this component before being sent, which allows the control plane elements (i.e. fog nodes at the edge and SDN controllers) to identify the access of traffic flows into the network \cite{tomovic2017software}. 
 
-\pagebreak
+Important use cases of such a system would be smart transportation, video surveillance etc. where low latency and real-time streaming takes preference. Besides fog computing, the presented system model can also exploit benefits of SDN to dynamically assign higher priority to some traffic flows in emergency situations, and hence guarantee low-latency.
+
 \subsection{OpenFog Reference Architecture}
 
 The OpenFog Reference Architecture is the product of the OpenFog Architecture workgroup, co-chaired by Charles Byers (Cisco) and Robert Swanson (Intel)\cite{openfogconsortium2017}. 
@@ -188,17 +191,16 @@ The functional viewpoint of the architecture describes how the OpenFog architect
 The deployment viewpoint addresses how the fog software and fog systems are deployed in order to satisfy a given stakeholder scenario. The deployments generally happen in a hierarchical based model where the number of tiers will be dictated by the scenario requirements\cite{openfogconsortium2017}.
 The scenarios might be the amount and type of work required by each tier or the number of sensors required for the deployment and so on.
 
-The abstract architecture comprising of the views and perspectives is shown below\cite{openfogconsortium2017}
+The abstract architecture comprising the views and perspectives is shown in figure \ref{fig:openfog_ra}.
 
-\begin{figure}
-\centering
-\includegraphics[scale=0.5]{figa.png}
-\caption{Architecture Description with Perspectives}
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.5]{figa.png}
+	\caption{Architecture description with perspectives \cite{openfogconsortium2017}}
+	\label{fig:openfog_ra}
 \end{figure} 
 
-The above figure includes grey vertical bars on the sides of the views which are referred to as Perspectives\cite{openfogconsortium2017}.
-
-Perspectives can be thought of as concerns that are to be employed in the fog implementation. They are listed below.
+The grey vertical bars on the sides of the views are referred to as perspectives \cite{openfogconsortium2017}. They can be thought of as concerns that are to be employed in the fog implementation. The reference architecture features the following perspectives:
 
 \begin{itemize}
 \item Performance - This is an important concern, also referred to as a cross cutting concern, as it impacts system and deployment scenario. Eg Low Latency.
@@ -222,32 +224,35 @@ The views(representation of stakeholder concerns)\cite{openfogconsortium2017} de
 \end{itemize} 
 
 \subsubsection{OpenFog Reference Architecture Deployment Models} 
+
 In most fog deployment models, there are usually tiers (N-tiers) of nodes. 
 Depending on the particular use-case/scenario, multiple fog and cloud elements may collapse into a single physical deployment. 
 Each fog element may also represent a mesh of peer fog nodes in use cases like connected cars, electrical vehicle charging, and closed loop traffic systems\cite{openfogconsortium2017}.
-The models discussed below\cite{openfogconsortium2017} use a combination of fog and cloud deployment to address various domain scenarios as framed by the layered view of IoT systems. 
-\begin{itemize}
-\item Fog Model Independent of the Cloud - This model is mainly used in cases where cloud cant be used. The reasons might be response time concern, compliance to regulations, security and privacy, and unavailability of a centralised cloud. 
-Use cases include armed forces combat systems, drone operations, some healthcare systems, hospitals, and ATM banking systems\cite{openfogconsortium2017}.
 
-\item Model using Cloud for Business Support - This model uses cloud for Business Support (information processing related to decision making).  However the actual operation-centric information processing is done by fog deployments located close to the infrastructure/process being managed.
-Use cases include commercial building management, commercial solar panel monitoring, and retail\cite{openfogconsortium2017}.
-
-\item Model using Cloud for Business and Operational Support - This model uses local fog infrastructure for time-sensitive computation, while the cloud is used for the balance of operational and business-related information processing.    
-Use cases include commercial UPS device monitoring, mobile network acceleration, and content delivery networks (CDNs) for Internet acceleration\cite{openfogconsortium2017}.
-
-\item Model using Minimal/no Fog infrastructure - This model leverages the cloud for the entire process due to the environmental constraints which would make the deployment of fog uneconomical or infeasible. 
-However fog nodes that are at the lowest level (device layer) may get some monitoring and control functions for safety related control.
-Use cases include agriculture, connected cars, and remote weather stations\cite{openfogconsortium2017}
-\end{itemize}
-The models discussed above might be summarised using the figure below
-\cite{openfogconsortium2017}.
-
-\begin{figure}
-\centering
-\includegraphics[scale=0.5]{models.png}
-\caption{IoT System Deployment Models}
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.5]{models.png}
+	\caption{IoT system deployment models \cite{openfogconsortium2017}}
+	\label{fig:depl_models}
 \end{figure}
+
+Figure \ref{fig:depl_models} provides an overview of different commonly-used deployment options. These options are:
+
+\begin{itemize}
+	\item Fog Model Independent of the Cloud - This model is mainly used in cases where cloud cant be used. The reasons might be response time concern, compliance to regulations, security and privacy, and unavailability of a centralised cloud. 
+	Use cases include armed forces combat systems, drone operations, some healthcare systems, hospitals, and ATM banking systems\cite{openfogconsortium2017}.
+
+	\item Model using Cloud for Business Support - This model uses cloud for Business Support (information processing related to decision making).  However the actual operation-centric information processing is done by fog deployments located close to the infrastructure/process being managed.
+	Use cases include commercial building management, commercial solar panel monitoring, and retail\cite{openfogconsortium2017}.
+
+	\item Model using Cloud for Business and Operational Support - This model uses local fog infrastructure for time-sensitive computation, while the cloud is used for the balance of operational and business-related information processing.    
+	Use cases include commercial UPS device monitoring, mobile network acceleration, and content delivery networks (CDNs) for Internet acceleration\cite{openfogconsortium2017}.
+
+	\item Model using Minimal/no Fog infrastructure - This model leverages the cloud for the entire process due to the environmental constraints which would make the deployment of fog uneconomical or infeasible. 
+	However fog nodes that are at the lowest level (device layer) may get some monitoring and control functions for safety related control.
+	Use cases include agriculture, connected cars, and remote weather stations\cite{openfogconsortium2017}
+\end{itemize}
+
 
 \pagebreak
 
