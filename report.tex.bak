@@ -87,9 +87,10 @@ Figure below\cite{tomovic2017software} illustrates the architecture from a high 
 
 \begin{figure}
 \centering
-\includegraphics[scale=0.5]{iot.png}
+\includegraphics[scale=0.7]{iot.png}
 \caption{Traditional IoT architecture}
 \end{figure} 
+
 
 Four main components are involved and they are\cite{tomovic2017software}: 
 \begin{itemize}
@@ -111,11 +112,13 @@ In this way, SDN allowed network managers to configure and optimize network reso
 The architecture proposed\cite{tomovic2017software}was intended to realise the IoT scenario where features of both technologies(SDN and Fog) were combined together as one integrated system.
 The setup(See Figure below)\cite{tomovic2017software} involved end devices with multiple wireless communication solutions, SDN controllers, heterogeneous fog infrastructure (virtualized servers, routers, access points, etc.) and cloud in the network core\cite{tomovic2017software}.
 
+
 \begin{figure}
 \centering
-\includegraphics[scale=0.5]{sdn.png}
+\includegraphics[scale=0.7]{sdn.png}
 \caption{SDN architecture for IoT based on Fog Computing}
 \end{figure} 
+
 
 The fog nodes exposed a set of APIs (Application Programming Interfaces) for application deployment and development, resource management and control. Since IoT applications may in general be geo-spatially distributed, a hierarchical deployment of fog network was assumed. 
 Mobile Fog programming model\cite{hong2013mobile} was used in the development of IoT applications using hierarchically deployed and heterogeneous fog resources.
@@ -190,11 +193,14 @@ The scenarios might be the amount and type of work required by each tier or the 
 
 The abstract architecture comprising of the views and perspectives is shown below\cite{openfogconsortium2017}
 
+
 \begin{figure}
 \centering
-\includegraphics[scale=0.5]{figa.png}
+\includegraphics[scale=0.7]{figa.png}
 \caption{Architecture Description with Perspectives}
 \end{figure} 
+
+
 
 The above figure includes grey vertical bars on the sides of the views which are referred to as Perspectives\cite{openfogconsortium2017}.
 
@@ -245,9 +251,10 @@ The models discussed above might be summarised using the figure below
 
 \begin{figure}
 \centering
-\includegraphics[scale=0.5]{models.png}
+\includegraphics[scale=0.7]{models.png}
 \caption{IoT System Deployment Models}
 \end{figure}
+
 
 \pagebreak
 
