@@ -62,11 +62,11 @@ The gateway and micro server are connected by an Ethernet interface and the inte
 
 Figure \ref{fig:gateway} shows the architecture both from a physical and logical view.
 
-\begin{figure}
-\centering
-\includegraphics[scale=0.5]{gateway.png}
-\caption{Gateway-based fog computing architecture for WSANs \cite{lee2016gateway}}
-\label{fig:gateway}
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.5]{gateway.png}
+	\caption{Gateway-based fog computing architecture for WSANs \cite{lee2016gateway}}
+	\label{fig:gateway}
 \end{figure} 
 
 The nodes can be seen as classified into slave nodes and master nodes. Slave nodes took care of functions such as flow management, virtual gateway and resource management whereas the master nodes have control over the functionalities of the slaves \cite{lee2016gateway}. The gateways have their own role where they function as a master/slave node. As shown in figure \ref{fig:gateway}, the slave nodes and master nodes exist in their respective layers when looked at from a logical point of view. 
@@ -86,19 +86,19 @@ An example would be the large-scale sensors networks to monitor the environment.
 Before we discuss the software-defined fog network for IoT, let us look at how a traditional IoT architecture looks and how it is realised.
 Figure \ref{fig:iot} shows such an architecture from a a high-level perspective.
 
-\begin{figure}
-\centering
-\includegraphics[scale=0.5]{iot.png}
-\caption{Traditional IoT architecture \cite{tomovic2017software}}
-\label{fig:iot}
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.5]{iot.png}
+	\caption{Traditional IoT architecture \cite{tomovic2017software}}
+	\label{fig:iot}
 \end{figure} 
 
 Four main components are involved and they are \cite{tomovic2017software}: 
 \begin{itemize}
-\item Sensing devices or as we call them 'things'
-\item Local communication network
-\item The Internet Cloud
-\item The Back-end IoT applications
+	\item Sensing devices or as we call them 'things'
+	\item Local communication network
+	\item The Internet Cloud
+	\item The Back-end IoT applications
 \end{itemize}
 
 The sensing devices collect/sense data from the physical environment which is then used in applications such as smart transportation to provide a desirable service to end customers. 
