@@ -274,7 +274,7 @@ For example, the network has to be highly scalable, providing support for a larg
 
 Using virtualisation mechanisms, such as SDN, has been deemed as viable solution to these issues \cite{yi2015survey}. In their proposal of a general architecture for the fog, Bonomi et al. \cite{bonomi2014fog} state that the fog should use virtualisation for ``key resources'', including networking. An architecture based on SDN is described in the architecture section. Using SDN, however, might not always be an option, as the as it puts ``a high emphasis'' \cite{peng2016fog} on a centralised architecture, with a small number of ``SDN controllers'' in charge. This basically creates a single point of failure: if the controllers cannot be reached, e.g. due to unreliable network links, the system is not able to function properly. To make the network more robust, a decentralised model as described by \cite{yi2015survey} might be used, where  ``each node should be able to act as a router for nearby nodes''. 
 
-\subsection{Optimal resource use}
+\subsection{Optimal Resource Use}
 \label{sub_opt_res_use}
 
 As stated before, the fog is highly heterogeneous. This heterogeneity is greatly reflected by different degrees of resource availability throughout the system. Important resources are storage, computation power and bandwidth. For example, in parts of the system, available bandwidth might be high due to the presence of more powerful network links, while in others, it can be a scare resource.
@@ -291,7 +291,7 @@ Lastly, they present different methods based on the concept of adjusting the net
 
 Focusing less on choosing locations for data and operations, and more on resources actually available at a given node, Aazam and Huh \cite{aazam2015dynamic} present a resource management method that has been developed especially for the dynamic environment of the fog. At its core, their method predicts the resources required by a consumer for the use of a specific service, and uses these predictions to give ``guarantees'' about resource availability. For example, a consumer might get a guarantee of 80\% availability for a particular service, meaning that it will have access to all resources required to run the service for most of the time. Predictions are largely dependent on past consumer behaviour. If the node in the previous example had, for instance, frequently disconnected from the service provider, its resource guarantee would be lower. Basically, this means that if not sufficient resources are available, they would preferably be given to nodes that make better use of them. As it can be easily seen, this makes resource allocation considerably fair.
 
-\subsection{Fault tolerance}
+\subsection{Fault Tolerance}
 As describe before, the fog mainly uses unreliable wireless network links. In addition, nodes are highly mobile. Being able to ensure availability of services, and provide reliability in general are therefore important aspects.
 
 To improve service availability, Yi et al. \cite{yi2015survey} suggest to adjust the network topology (see section \ref{sub_opt_res_use}). For instance, they present the idea of dividing a network into several clusters, with each cluster centred around a ``rich-resource'' node.
